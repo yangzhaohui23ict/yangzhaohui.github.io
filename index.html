@@ -79,6 +79,10 @@
   <time class="dt-published" datetime="2024-01-30T06:04:56.000Z" itemprop="datePublished">2024-01-30</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -87,7 +91,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/01/30/My-new-Post/">My new Post</a>
+      <a class="p-name article-title" href="/2024/01/30/My-new-Post/">贝叶斯分类器</a>
     </h1>
   
 
@@ -95,17 +99,100 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>正文部分：</p>
-<p>​	第一次个人网页搭建尝试。</p>
+        <h1 id="贝叶斯分类器（生成式分类器）"><a href="#贝叶斯分类器（生成式分类器）" class="headerlink" title="贝叶斯分类器（生成式分类器）"></a>贝叶斯分类器（生成式分类器）</h1><h2 id="贝叶斯决策论"><a href="#贝叶斯决策论" class="headerlink" title="贝叶斯决策论"></a>贝叶斯决策论</h2><p>​	是概率框架下实施决策的基本方法。</p>
+<p>​	对于分类任务来说，在所有相关概率都已知的理想条件下，贝叶斯决策论考虑如何基于这些概率和误判损失来选择最优的类别标记。</p>
+<p>​	首先引入一个概念：条件风险</p>
+<p>​	对于多分类任务，我们将一个真实标记为j的样本误分类到i，这意味着我们的模型工作出现了损失，这个损失取决于本身的分类错误带来的损失已经对于给定样本发生这个错误的概率。</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231212153859340.png" alt="image-20231212153859340"></p>
+<p>​	我们的目标：令总体风险最小。</p>
+<p>​	进而产生了贝叶斯判定准则：对于每一个样本输入，为了最小化总体风险，我们都去选择哪个能使条件风险R(c|x)最小的类别标记。</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231212154031305.png" alt="image-20231212154031305"></p>
+<p>​	此时，得到的h*就称之为是贝叶斯最优分类器，基于此计算就可以得到对应风险，1-风险&#x3D;这个分类器能达到的最好性能。</p>
+<p>​	最简单的情况，为了最小化分类错误率，可以将误判损失记作：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231212154849322.png" alt="image-20231212154849322"></p>
+<p>​	这种情况下，损失或者说风险就等于是错误率等于1-正确率：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231212155021145.png" alt="image-20231212155021145"></p>
+<p>​	此时对应的最优分类器就是（和上面那个等价，特殊情况的另一个表示方式）：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231212155103749.png" alt="image-20231212155103749"></p>
+<p>​	所以，我们需要知道后验概率P(c|x)，但是这又谈何容易？</p>
+<p>​	换个说法，我要是已知这个数据，多你一个方法不多，少你一个不少，贝叶斯之所以经得起时间的考验，就是因为，我们可以通过一些已知条件和概率论知识，计算得到后验概率也就是P(c|x)的<strong>估计</strong>。</p>
+<p>​	对于后验概率的计算，我们这里也有两个策略，一来是给定一个X，我们通过直接建模来预测c，这就是判别式模型（比如决策树，支持向量机），另一个方法是对于P(x,c)这个联合概率分布建模，基于此计算P(c|x)，这就是生成式模型。</p>
+<p>​	对于生成式模型，之所以需要对于P(x,c)这个联合概率分布建模，显然是因为条件概率的公式：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231213191010521.png" alt="image-20231213191010521"></p>
+<p>​	基于贝叶斯定理，上式又等于：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231213191034566.png" alt="image-20231213191034566"></p>
+<p>​	到这里都是不难理解的，其中P(c)就是类先验概率，另外，P(X)是和类标记无关的，所以我们的问题其实就是基于训练数据，估计分子部分。</p>
+<p>​	诶，问题来了，我们得怎么估计呢？</p>
+<p>​	P(c)是什么？是类先验概率（屁话），是样本空间中各类样本的占比，10个样本，1类别有5个，P（1）就是0.5，根据大数定律，这个搞法在训练集充足，独立同分布的情况下，是靠谱的。</p>
+<p>​	那么，类条件概率P(x|c)呢？首先，上面估计P(c)的方法是不行的，因为我们的样本数很有可能是覆盖不了样本空间全部的取值可能的。这意味着我们这个搞法，八成是不合理的。</p>
+<p>​	so？can can need new idea?</p>
+<h2 id="极大似然估计"><a href="#极大似然估计" class="headerlink" title="极大似然估计"></a>极大似然估计</h2><p>​	磨刀不误砍柴工，先学习一下工具总不是错的。（这部分我来回来去看，发现确实是放哪里都不好，索性按照原书的来）</p>
+<p>​	分类任务这么复杂，万恶之源其实就是类条件概率P(x|c)，这里我们假定认为，P(x|c)是具有确定的形式的，由参数θ唯一确定，那么我们只要通过训练数据，获得θ，我们就可以得到类条件概率P(x|c)。</p>
+<p>​	so？如何计算θ呢？这就是极大似然估计的用处了，他认为参数是客观存在的固定值，我们现在有数据，也已知分布方式，我们要找一个能让当前数据出现概率最大的参数。</p>
+<p>​	下式就是所有数据出现的概率，我们希望他越大越好，最大的时候的θ就是我们要的。</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231214214111977.png" alt="image-20231214214111977"></p>
+<p>​	连乘看起来不友好，我们转化一下：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231214214216441.png" alt="image-20231214214216441"></p>
+<p>​	此时我们的目标就是：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231214214237021.png" alt="image-20231214214237021"></p>
+<p>​	然后就是各显神通，求导开算了，最常用的高斯分布计算结果为：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231214214321208.png" alt="image-20231214214321208"></p>
+<p>​	这个部分跟我们这章节关系不大，不过确实是，后面一些说法的基础，还是先提一下的好。</p>
+<h2 id="朴素贝叶斯分类器"><a href="#朴素贝叶斯分类器" class="headerlink" title="朴素贝叶斯分类器"></a>朴素贝叶斯分类器</h2><p>​	首先，看一下上面的难点，类条件概率P(x|c)是所有属性上的联合概率，但是训练样本有限，不好估计，但是正所谓，世上无难事，只要肯放弃，我们可以走捷径啊。</p>
+<p>​	朴素贝叶斯分类器，采用了属性条件独立性假设，也就是假设每种属性独立对于分类结果发生影响。看起来平平无奇，但是朴素这一刀下去基本就把可能性砍得差不多了。这样就可以计算P(x|c)了（虽然也挺没道理的）</p>
+<p>​	首先，基于假设，重写之前的贝叶斯定理公式：</p>
+<p>​	<img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231213193122994.png" alt="image-20231213193122994"></p>
+<p>​	这里的d就是属性的数目。</p>
+<p>​	那么我们这个地方把这些坑都填上了，回过头去看贝叶斯判定准则，也就是：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231213193835290.png" alt="image-20231213193835290"></p>
+<p>​	到这里，朴素贝叶斯怎么算基本就比较明确了。</p>
+<p>​	首先，对于离散数据（离散好啊，就喜欢这个），计算方式比较简单，就是类似统计方法：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231213194217381.png" alt="image-20231213194217381"></p>
+<p>​	其次，对于一些连续的属性数据（苦瓜脸），需要使用概率密度函数。这里我们首先需要假设一个类条件概率P(x|c)的分布，这里一般都是高斯分布，然后根据训练数据计算分布的均值和方差。</p>
+<p>​	此处一般使用极大似然估计。</p>
+<p>​	but！（其实到这里基本都知道要说什么了）</p>
+<h3 id="拉普拉斯变换"><a href="#拉普拉斯变换" class="headerlink" title="拉普拉斯变换"></a>拉普拉斯变换</h3><p>​	首先，我们看到上面的贝叶斯判定准则那里，是连乘，而一旦我们存在一个属性对应的条件概率P(x<sub>i</sub>|c)&#x3D;0，显然这是很有可能发生的，也就是训练数据中对于类别c我们没有对应x<sub>i</sub>属性的数据存在，此时我们前面的分类器就会非常愚笨的认为，我既然没见过，这个属性能对应到c？这怎么可能呢？然后把这个概率输出为0。</p>
+<p>​	这显然不是我们想看到的。</p>
+<p>​	于是，我们为了保证未出现的属性值，需要在估计概率值的过程中，进行平滑操作。常用的就是拉普拉斯平滑，计算方式为：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231213195342450.png" alt="image-20231213195342450"></p>
+<p>​	这种情况下，我们前面提到的情况，对应条件概率不为0，至少可以继续算下去。避免了训练样本不充分导致概率估值为0的问题。</p>
+<h2 id="半朴素贝叶斯分类器"><a href="#半朴素贝叶斯分类器" class="headerlink" title="半朴素贝叶斯分类器"></a>半朴素贝叶斯分类器</h2><p>​	我们在前面的内容中，意识到后验概率P(c|x)估计的困难其实主要是源于类条件概率P(x|c)的估计。因为，我们通过采取了一刀切的方法，令属性之间彼此独立，基于此假设，我们提出了朴素贝叶斯分类器，实现了对于后验概率的估计。</p>
+<p>​	但是，我们可以明显感觉到，这实际上是一个很强的条件假设，我们为了实现朴素贝叶斯分类，牺牲了很多。于是，我们开始试着放松独立性假设，进而得到了半朴素贝叶斯分类器。</p>
+<p>​	但是我们稍微细想一下，其实半朴素本身是一个范围很大的概念，而我们这里最常用的一个策略则是独依赖估计，所谓独依赖，就是指每一个属性在自己之外最多依赖于一个其他属性，也就是：<img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231214145603828.png" alt="image-20231214145603828"></p>
+<p>​	这里的pa<sub>i</sub>就是属性x<sub>i</sub>所以来的属性，称作父属性。基于公式，我们不难看出，只要确定了每一个属性的父属性，套公式用朴素贝叶斯的计算方式求概率算就行。</p>
+<p>​	所以，问题再一次化简，如何确定父属性？</p>
+<p>​	方法一：最直接的方法，令所有属性都依赖于同一个属性，成为“超父”，这个属性可以通过交叉验证的方法去找。</p>
+<p>​	方法二：基于最大带权生成树算法，获得属性之间的关系。将属性之间的以依赖关系化简为树形结构。也叫TAN</p>
+<p>​	整体的策略如下：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231214154814131.png" alt="image-20231214154814131"></p>
+<p>​	基于此，其实我们可以看出来，这个TAN的底层逻辑就是保留强相关属性之间的依赖性。</p>
+<p>​	半朴素贝叶斯在数据足够充分的前提下，学习到的样本关系更多，这很可能会带来泛化性能的提升，但是如果样本有限，就别作妖了。</p>
+<h2 id="高斯判别分析"><a href="#高斯判别分析" class="headerlink" title="高斯判别分析"></a>高斯判别分析</h2><p>​	首先，我们使用这个方法的前提也是我们前面进行贝叶斯分类的一个痛点：类条件概率P(x|c)的估计困难。</p>
+<p>​	而高斯判别分析则是在这个地方给出了一个plan B。</p>
+<p>​	我认为每类数据都是由多元高斯分布产生，即：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231214202155047.png" alt="image-20231214202155047"></p>
+<p>​	那么显然，我们对于类条件概率估计的困难在这里就转换成为了对于多元高斯分布两个参数的估计。</p>
+<p>​	其中均值项好办，直接平均就可以。</p>
+<p>​	对于方差项（因为多元，所以用的协方差矩阵）：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231214205621940.png" alt="image-20231214205621940"></p>
+<p>​	此时类别c的判别函数为：	<img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231214203111134.png" alt="image-20231214203111134"></p>
+<p>​	比较常使用的一般式两个类别的判别分析：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231214203159579.png" alt="image-20231214203159579"></p>
+<p>​	显然有点乱七八糟，不过我们可以基于一些特殊情况，对上式进行调整：</p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231214203630783.png" alt="image-20231214203630783"></p>
+<p>​	上式中，其实b的第一项，因为协方差矩阵相等，这项是&#x3D;0的，直接看后面两项即可。</p>
+<p>​	直接放一个栗子：	<img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231214212614701.png" alt="image-20231214212614701"></p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231214212717451.png" alt="image-20231214212717451"></p>
+<p><img src="C:\Users\10562\AppData\Roaming\Typora\typora-user-images\image-20231214212727884.png" alt="image-20231214212727884"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/30/My-new-Post/" data-id="clrzyo36b00001gue6aka7bqv" data-title="My new Post" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/01/30/My-new-Post/" data-id="clrzyo36b00001gue6aka7bqv" data-title="贝叶斯分类器" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E9%A1%B5%E6%90%AD%E5%BB%BA/" rel="tag">网页搭建</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">模式识别与机器学习</a></li></ul>
 
     </footer>
   </div>
@@ -173,13 +260,20 @@
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a></li></ul>
+    </div>
+  </div>
+
 
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E9%A1%B5%E6%90%AD%E5%BB%BA/" rel="tag">网页搭建</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">模式识别与机器学习</a></li></ul>
     </div>
   </div>
 
@@ -189,7 +283,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/%E7%BD%91%E9%A1%B5%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">网页搭建</a>
+      <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">模式识别与机器学习</a>
     </div>
   </div>
 
@@ -211,7 +305,7 @@
       <ul>
         
           <li>
-            <a href="/2024/01/30/My-new-Post/">My new Post</a>
+            <a href="/2024/01/30/My-new-Post/">贝叶斯分类器</a>
           </li>
         
           <li>
