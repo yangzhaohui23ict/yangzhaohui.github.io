@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>线性模型 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="线性模型基本形式​	大道至简，大象无形，大音希声~ ​	作为最简单的建模模型，线性建模是很多更强大更复杂的模型的基础。 ​	线性模型是通过对于样本的一些属性进行线性组合进而对于结果做出预测的函数。即：  ​	一般来说，也可以用向量模式表示：  ​	这里的w是一个向量，对应于每一个特征对于最后结果的贡献。这个也可以视作模型的可解释性。 线性回归​	这里我们可以先用最简单的情况来进行情形进行理解，也就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性模型">
+<meta property="og:url" content="http://example.com/2024/01/31/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="线性模型基本形式​	大道至简，大象无形，大音希声~ ​	作为最简单的建模模型，线性建模是很多更强大更复杂的模型的基础。 ​	线性模型是通过对于样本的一些属性进行线性组合进而对于结果做出预测的函数。即：  ​	一般来说，也可以用向量模式表示：  ​	这里的w是一个向量，对应于每一个特征对于最后结果的贡献。这个也可以视作模型的可解释性。 线性回归​	这里我们可以先用最简单的情况来进行情形进行理解，也就">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/pic/image-20231218193746631.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218193807772.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218194145317.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218194243116.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218194702005.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218194833974.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218194838918.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218195401787.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218195516643.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218195606486.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218200815605.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218201103236.png">
+<meta property="og:image" content="http://example.com/pic/image-20240117195841144.png">
+<meta property="og:image" content="http://example.com/pic/image-20240117200140574.png">
+<meta property="og:image" content="http://example.com/pic/image-20240117200445646.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218201824451.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218202900802.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218202945729.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218203409510.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218203927511.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218204003668.png">
+<meta property="og:image" content="http://example.com/pic/image-20240118105222277.png">
+<meta property="og:image" content="http://example.com/pic/image-20240118105459307.png">
+<meta property="og:image" content="http://example.com/pic/image-20240118105622276.png">
+<meta property="og:image" content="http://example.com/pic/image-20231218205127336.png">
+<meta property="article:published_time" content="2024-01-31T08:03:24.000Z">
+<meta property="article:modified_time" content="2024-01-31T08:03:48.588Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="国科大模式识别与机器学习23秋季学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/pic/image-20231218193746631.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-线性模型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/01/31/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-01-31T08:03:24.000Z" itemprop="datePublished">2024-01-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      线性模型
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="线性模型"><a href="#线性模型" class="headerlink" title="线性模型"></a>线性模型</h1><h2 id="基本形式"><a href="#基本形式" class="headerlink" title="基本形式"></a>基本形式</h2><p>​	大道至简，大象无形，大音希声~</p>
+<p>​	作为最简单的建模模型，线性建模是很多更强大更复杂的模型的基础。</p>
+<p>​	线性模型是通过对于样本的一些属性进行线性组合进而对于结果做出预测的函数。即：</p>
+<p><img src="/./../pic/image-20231218193746631.png" alt="image-20231218193746631"></p>
+<p>​	一般来说，也可以用向量模式表示：</p>
+<p><img src="/./../pic/image-20231218193807772.png" alt="image-20231218193807772"></p>
+<p>​	这里的w是一个向量，对应于每一个特征对于最后结果的贡献。这个也可以视作模型的可解释性。</p>
+<h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><p>​	这里我们可以先用最简单的情况来进行情形进行理解，也就是一个属性对应于一个结果，相当于一个平面几个点，叫你画条线叫这些点距离这条线越近越好。</p>
+<p>​	显然，我们要学习的就是：</p>
+<p><img src="/./../pic/image-20231218194145317.png" alt="image-20231218194145317"></p>
+<p>​	这里有两个未知数：w,b，都是单个实数，计算方式就是基于我们前面的约束条件，进行最小二乘法：</p>
+<p><img src="/./../pic/image-20231218194243116.png" alt="image-20231218194243116"></p>
+<p>​	显然，我们希望w和b的取值可以另这个式子尽可能小，所以我们需要对其进行求导：</p>
+<p><img src="/./../pic/image-20231218194702005.png" alt="image-20231218194702005"></p>
+<p>​	然后另这两个导数等于0，就可以得到对应的最优解公式：</p>
+<p><img src="/./../pic/image-20231218194833974.png" alt="image-20231218194833974"></p>
+<p>​	其中分子上的x杠是均值的意思</p>
+<p><img src="/./../pic/image-20231218194838918.png" alt="image-20231218194838918"></p>
+<p>​	基于此，我们可以稍微扩充一下我们之前的情形，我们希望可以带进来更多的属性，此时w从之前的单实数变向量。另外我们可以直接用增广向量的形式，把b也收进来，此时的数据格式为：</p>
+<p><img src="/./../pic/image-20231218195401787.png" alt="image-20231218195401787"></p>
+<p>​	右边是增广之后的w，两个矩阵这样相乘可以得到结果向量长度为m，这里m为样本个数。</p>
+<p>​	然后重走长征路，写目标函数，也就是我们计算参数的依据：</p>
+<p><img src="/./../pic/image-20231218195516643.png" alt="image-20231218195516643"></p>
+<p>​	这里不用b，因为b就在这个里面。</p>
+<p>​	对此求导结果为：</p>
+<p><img src="/./../pic/image-20231218195606486.png" alt="image-20231218195606486"></p>
+<p>​	另上式为0就可以得到最优解，但是因为这涉及到矩阵的逆的计算，我们做一个讨论：</p>
+<p>​	情况1.如果是X<sup>T</sup>X是一个满秩矩阵或者正定矩阵。则上式为0得到结果为：</p>
+<p><img src="/./../pic/image-20231218200815605.png" alt="image-20231218200815605"></p>
+<p>​	此时，我们的多元线性回归模型为：</p>
+<p><img src="/./../pic/image-20231218201103236.png" alt="image-20231218201103236"></p>
+<p>​	上面有小帽说明是增广向量，最后有一个1。</p>
+<p>​	情况2.那如果不是呢？事实上多数情况下也确实不是。那么此时出现的一个问题就是，未知数少，等式多，我们可以计算多个结果出来，都可以做到。也就是有多个w满足令局方误差最小的情况。</p>
+<p>​	既然这样，那就开卷，加题！——引入正则项，由学习算法的归纳偏好决定选择哪一个解作为输出。</p>
+<p><img src="/./../pic/image-20240117195841144.png" alt="image-20240117195841144"></p>
+<h5 id="关于这个目标函数的损失函数"><a href="#关于这个目标函数的损失函数" class="headerlink" title="关于这个目标函数的损失函数"></a>关于这个目标函数的损失函数</h5><p>​	对于回归问题，最常用的是L2损失，为预测残差的平方。也就是我们上图的左半部分。</p>
+<p>​	补充一下，最小L2损失函数等价于高斯白噪声下的极大似然。</p>
+<p>​	HUber损失，也叫胡伯损失函数，用来弥补L2损失对于噪声点的敏感性和L1在r&#x3D;0处不可导的问题。性能比较好。</p>
+<p><img src="/./../pic/image-20240117200140574.png" alt="image-20240117200140574"></p>
+<h5 id="关于这个目标函数的正则项"><a href="#关于这个目标函数的正则项" class="headerlink" title="关于这个目标函数的正则项"></a>关于这个目标函数的正则项</h5><p>​	如果目标函数只考虑模型对于训练样本的拟合，容易产生过拟合。为了抑制过拟合，在目标函数中加入了正则项。</p>
+<p>​	正则项通常与模型的复杂度有关。</p>
+<p><img src="/./../pic/image-20240117200445646.png" alt="image-20240117200445646"></p>
+<p>​	补充，这里的惩罚和截距项没有关系，因为截距项不会影响模型的复杂度。这里主要是针对增广向量，计算正则的时候需要注意一下。</p>
+<p>​	没有正则的情况下，也就是最开始的计算过程，也叫做最小二乘法计算。</p>
+<p>​	对于L2正则的线性回归，又称作岭回归。可通过SVD求解</p>
+<p>​	对于L1正则的线性回归，称作是Lasso回归。没有解析解，只能迭代求解。</p>
+<p>​	</p>
+<p>​	线性模型本身简单，但是也存在着丰富的变化，比如说，数据本身对应标签的关系是指数尺度上的，那么输出结果的对数作为线性逼近的目标自然更加合理。</p>
+<p><img src="/./../pic/image-20231218201824451.png" alt="image-20231218201824451"></p>
+<p>​	这个方法，形式上也是线性回归，但是实际上我们逼近和拟合的是输入空间到输出空间的非线性映射。</p>
+<h2 id="对数线性回归（逻辑斯特回归）"><a href="#对数线性回归（逻辑斯特回归）" class="headerlink" title="对数线性回归（逻辑斯特回归）"></a>对数线性回归（逻辑斯特回归）</h2><p>​	上一节提到的是进行回归学习，而实际上我们还可以进行分类任务，只要我们可以将分类任务的真实标记和线性回归模型的预测值联系起来就可以。</p>
+<p>​	考虑对于二分类任务，我们要做的就是把实数域的数据映射到0,1上，最简单的单位阶跃函数，但是问题是不连续，好一点的就是对数几率函数，也是最常用的：</p>
+<p><img src="/./../pic/image-20231218202900802.png" alt="image-20231218202900802"></p>
+<p>​	代入我们前面提到的线性回归模型，这个时候的对数几率函数就是：</p>
+<p><img src="/./../pic/image-20231218202945729.png" alt="image-20231218202945729"></p>
+<p>​	稍微调整一下上式，可以变化为：</p>
+<p><img src="/./../pic/image-20231218203409510.png" alt="image-20231218203409510"></p>
+<p>​	此时，我们可以将y视作样本x为正例的可能性，则1-y是作为反例的可能性，两者的壁纸称作几率，这样，上式的左半部分我们也可以称作是“对数几率”</p>
+<p>​	这样来看，这个公式的目的就是用线性回归模型来预测结果逼近真实标记的对数几率。名为回归实则分类。并且相比于传统分类，还多一个概率。</p>
+<p>​	这个东西这么好，又该怎么计算呢？按照我们前面提到的概率的说法，重写上式：</p>
+<p><img src="/./../pic/image-20231218203927511.png" alt="image-20231218203927511"></p>
+<p>​	基于此，我们可以再稍微重写一下，因为正反例之和为1，所以：</p>
+<p><img src="/./../pic/image-20231218204003668.png" alt="image-20231218204003668"></p>
+<p>​	那我们的核心思想就很明确了，我们希望每一个样本都是，属于真实标记的那个概率越大越好：</p>
+<p><img src="/./../pic/image-20240118105222277.png" alt="image-20240118105222277"></p>
+<p>​	逻辑斯蒂回归中加入正则项的必要性：<img src="/./../pic/image-20240118105459307.png" alt="image-20240118105459307"></p>
+<p>​	基于这点，我们又补充了超参数C。</p>
+<p><img src="/./../pic/image-20240118105622276.png" alt="image-20240118105622276"></p>
+<h5 id="对数几率回归的优化求解"><a href="#对数几率回归的优化求解" class="headerlink" title="对数几率回归的优化求解"></a>对数几率回归的优化求解</h5><p>​	这里比较传统的计算法子就是梯度下降法。</p>
+<p>​	这里需要提一下，下图中的计算似然函数还加了一个正则项，这个属于是没他也行，有他更好。</p>
+<p><img src="/./../pic/image-20231218205127336.png" alt="image-20231218205127336"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/01/31/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/" data-id="cls1i3wiw0000msue2nmt7s65" data-title="线性模型" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">神经网络</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">国科大模式识别与机器学习23秋季学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/01/31/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/">线性模型</a>
+          </li>
+        
+          <li>
+            <a href="/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
+          </li>
+        
+          <li>
+            <a href="/2024/01/31/%E5%88%A4%E5%88%AB%E5%BC%8F%E5%88%86%E7%B1%BB%E5%99%A8/">判别式分类器</a>
+          </li>
+        
+          <li>
+            <a href="/2024/01/31/%E9%99%8D%E7%BB%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/">降维与度量学习</a>
+          </li>
+        
+          <li>
+            <a href="/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/">集成学习</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
