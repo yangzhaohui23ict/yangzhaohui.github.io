@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>集成学习 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="集成学习个体与集成​	集成学习通过构建并结合多个学习器来完成学习任务，有时也被称为是多分类器系统。 ​	集成学习的一般结构：先产生一组“个体学习器”，再用某种策略将他们结合起来。 ​	个体学习器通常是基于现有的学习算法和训练数据产生。基于个体学习器，可以对于集成学习进行分类： ​	同质：集成中只包含有相同类型的个体学习器，比如都是各种神经网络或者各种决策树。 ​	异质：就是包含不同类型的个体学习器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集成学习">
+<meta property="og:url" content="http://example.com/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="集成学习个体与集成​	集成学习通过构建并结合多个学习器来完成学习任务，有时也被称为是多分类器系统。 ​	集成学习的一般结构：先产生一组“个体学习器”，再用某种策略将他们结合起来。 ​	个体学习器通常是基于现有的学习算法和训练数据产生。基于个体学习器，可以对于集成学习进行分类： ​	同质：集成中只包含有相同类型的个体学习器，比如都是各种神经网络或者各种决策树。 ​	异质：就是包含不同类型的个体学习器">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/pic/image-20231220093434121.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220095825576.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220102656884.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220103014753.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220104140480.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220104951918.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220114630741.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220191444733.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220191501701.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220191510407.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220191520729.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220144432395.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220144446912.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220145402133.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220145944380.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220191146854.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220191249242.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220191255384.png">
+<meta property="og:image" content="http://example.com/pic/image-20231220191306627.png">
+<meta property="og:image" content="http://example.com/pic/image-20240109110038497.png">
+<meta property="og:image" content="http://example.com/pic/image-20240109110621049.png">
+<meta property="og:image" content="http://example.com/pic/image-20240109111951291.png">
+<meta property="og:image" content="http://example.com/pic/image-20240109112251090.png">
+<meta property="og:image" content="http://example.com/pic/image-20240109112301160.png">
+<meta property="og:image" content="http://example.com/pic/image-20240108193319577.png">
+<meta property="article:published_time" content="2024-01-31T07:01:36.000Z">
+<meta property="article:modified_time" content="2024-01-31T07:08:23.540Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="国科大模式识别与机器学习23秋季学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/pic/image-20231220093434121.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-集成学习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time class="dt-published" datetime="2024-01-31T07:01:36.000Z" itemprop="datePublished">2024-01-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      集成学习
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h1><h2 id="个体与集成"><a href="#个体与集成" class="headerlink" title="个体与集成"></a>个体与集成</h2><p>​	集成学习通过构建并结合多个学习器来完成学习任务，有时也被称为是多分类器系统。</p>
+<p>​	集成学习的一般结构：先产生一组“个体学习器”，再用某种策略将他们结合起来。</p>
+<p>​	个体学习器通常是基于现有的学习算法和训练数据产生。基于个体学习器，可以对于集成学习进行分类：</p>
+<p>​	同质：集成中只包含有相同类型的个体学习器，比如都是各种神经网络或者各种决策树。</p>
+<p>​	异质：就是包含不同类型的个体学习器，比如神经网络和决策树都有。</p>
+<p>​	集成学习，通过将多个学习器进行结合，往往可以获得比单一学习器显著优越的泛化性能，这一点对于弱学习器尤为明显，集成学习的很多理论也都是针对于弱学习器来进行的。——三个臭皮匠了属于是</p>
+<p>​	（弱学习器：有用但不多的学习器，泛化性能略优于随机猜测）</p>
+<p>​	这里存在一个问题，就是在我们比较朴素的理解中，好坏掺一起，最后的结果应该是居中的，为什么这里却可以做到比最好的单一学习器更好呢？</p>
+<p>​	举个栗子，二分类任务，集成学习的结果通过投票法来产生，这样对于不同的个体学习器，在集成之后就产生了不同的效果：</p>
+<p><img src="/./../pic/image-20231220093434121.png" alt="image-20231220093434121"></p>
+<p>​	基于上面的图，我们可以给出我们对于个体学习器的要求：<strong>好而不同</strong>。我们希望不同的学习器在保证自身水平的前提下各有侧重，兼备准确性与多样性。</p>
+<p>​	 对于基分类器，我们假设错误率一定，则此时我们可以给出集成的错误率为：</p>
+<p><img src="/./../pic/image-20231220095825576.png" alt="image-20231220095825576"></p>
+<p>​	其中H(x)是对应分类器的结果，f(x)为真实函数</p>
+<p>​	上式显示出来，随着集成中的个体分类器的数目T的增大，集成的错误率将呈现指数级下降，最后趋近于零。但是这一点有一个关键假设：基学习器的误差互相独立，但是我们本身就是面向同一个问题训练的不同学习器，这显然是不独立的。</p>
+<p>​	另外，好而不同这个概念本身就存在冲突，准确性高的前提下，增加多样性就必然会造成准确性的牺牲。这也就是集成学习的核心。</p>
+<p>​	根据个体学习器的生成方式，目前集成学习方法可以分成两个大类。1.个体学习器之间有强关联，串行生成，前面打基础，后面985。2.个体学习器之间不存在强依赖关系，众人拾柴火焰高、</p>
+<p>​	前者的代表是boosting，后者的代表是bagging</p>
+<h2 id="boosting"><a href="#boosting" class="headerlink" title="boosting"></a>boosting</h2><p>​	这个系列的算法目的是将弱学习器提升为强学习器。这一族的工作机制为：先从初始训练集训练一个基学习器，再根据基学习器的表现，对于训练样本分布进行调整。是的先前基学习器做错的训练样本后续受到更多的关注。样本调整好了之后，我们重新训练下一个新的基学习器，重复上述过程，最后把训练出来的多个基学习器加权结合。</p>
+<p>​	在这个过程中，我们每一次调整样本，不是为了训练出来一个强学习器，换个说法就是强学习的训练并不容易，不然这算法就没意义了，我们希望的是，每次调整训练数据之后，产生的新的弱学习器可以给之前的弱学习器提供帮助。（主攻之前弱学习器不行的部分）</p>
+<p><img src="/./../pic/image-20231220102656884.png" alt="image-20231220102656884"></p>
+<p>​	训练集的调整操作：1.对于原始训练集重复采样2.改变训练集标签3.对原始训练集重新加权。</p>
+<p><img src="/./../pic/image-20231220103014753.png" alt="image-20231220103014753"></p>
+<p>​	boosting最有名的算法为AdaBoost，这个算法的基本思想为（N为样本数）：</p>
+<p><img src="/./../pic/image-20231220104140480.png" alt="image-20231220104140480"></p>
+<p>​	这里令学习器1在训练集2的性能接近随机猜测，意味着我们提高了学习器1错误部分的占比（本身弱学习器应该是优于随机猜测的）</p>
+<p>​	样本重新加权，应该怎么做：</p>
+<p><img src="/./../pic/image-20231220104951918.png" alt="image-20231220104951918"></p>
+<p>​	这个地方还是这样更好理解些：	<img src="/./../pic/image-20231220114630741.png" alt="image-20231220114630741"></p>
+<p>​	可以证明，随着弱学习器的数目增多，训练误差越来越小。</p>
+<p>​	举个栗子：</p>
+<p><img src="/./../pic/image-20231220191444733.png" alt="image-20231220191444733"></p>
+<p><img src="/./../pic/image-20231220191501701.png" alt="image-20231220191501701"></p>
+<p><img src="/./../pic/image-20231220191510407.png" alt="image-20231220191510407"></p>
+<p><img src="/./../pic/image-20231220191520729.png" alt="image-20231220191520729"></p>
+<h2 id="GBDT"><a href="#GBDT" class="headerlink" title="GBDT"></a>GBDT</h2><p>​	全称为梯度提升决策树</p>
+<p>​	也是boosting算法中的一个。</p>
+<p><img src="/./../pic/image-20231220144432395.png" alt="image-20231220144432395"></p>
+<p>​	整体上希望实现的一个效果：</p>
+<p><img src="/./../pic/image-20231220144446912.png" alt="image-20231220144446912"></p>
+<p>​	整体的目标函数：希望精确度尽可能高，损失函数尽可能小。</p>
+<p><img src="/./../pic/image-20231220145402133.png" alt="image-20231220145402133"></p>
+<p>​	这里的损失函数L的用处是说明一下结果与真实标签的不同程度，这里对于损失函数的定义，有两个方案，对于分类问题，使用负log似然损失，对于回归问题，可以用L2损失。</p>
+<p>​	对于L2损失：</p>
+<p><img src="/./../pic/image-20231220145944380.png" alt="image-20231220145944380"></p>
+<p>​	其实整个GBDT，其实就是每一次都对于残差进行预计。我们这里也可以看到梯度就是残差。</p>
+<p>​	举个栗子：</p>
+<p>​		这里第一步就是均值</p>
+<p><img src="/./../pic/image-20231220191146854.png" alt="image-20231220191146854"></p>
+<p><img src="/./../pic/image-20231220191249242.png" alt="image-20231220191249242"></p>
+<p><img src="/./../pic/image-20231220191255384.png" alt="image-20231220191255384"></p>
+<p><img src="/./../pic/image-20231220191306627.png" alt="image-20231220191306627"></p>
+<p>​	这里需要注意，我们是树，所以这里的学习器只能做一个二值判断，超过不超过各赋一个值。</p>
+<p>​	这个地方我们最直观的认知就是每一个学习器直接预测之前结果的残差，将这个学习器的训练结果直接补充进来，但是实际操作的时候我们发现，这样做容易导致过拟合，所以又补充了学习率的概念，对于残差的预测结果，我们进行一定程度的收缩，这提供了训练更多弱学习器的空间，使得最后的预测结果细节更丰富。</p>
+<h2 id="XGBoost"><a href="#XGBoost" class="headerlink" title="XGBoost"></a>XGBoost</h2><p>​	极致梯度提升，是一种基于GBDT的算法，在基本思想上和GBDT相同，但是进行了一定的优化，相较于GBDT，XGBoost更加高效，灵活，轻便。</p>
+<p>​	和GBDT相比，最大的不同就是对于目标函数的定义。</p>
+<p><img src="/./../pic/image-20240109110038497.png" alt="image-20240109110038497"></p>
+<p>​	这里的目标函数由损失函数和正则项组成。</p>
+<p>​	损失函数：模型的偏差。</p>
+<p>​	正则项：全部t棵树的复杂度的和。</p>
+<p><img src="/./../pic/image-20240109110621049.png" alt="image-20240109110621049"></p>
+<p>​	基于上面的两个部分，可以得到目标函数：<img src="/./../pic/image-20240109111951291.png" alt="image-20240109111951291"></p>
+<p>​	这里的G<sub>t</sub>和H<sub>t</sub>两部分，是对应的g<sub>m,i</sub>和h<sub>m,i</sub>的和。对应损失函数的一二阶导数。上式中的T是指树的叶子节点的个数。</p>
+<p><img src="/./../pic/image-20240109112251090.png" alt="image-20240109112251090"></p>
+<p><img src="/./../pic/image-20240109112301160.png" alt="image-20240109112301160"></p>
+<h2 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h2><p>​	我们希望每一个基学习器都可以做到彼此互补，存在一定的多样性，这需要我们的学习器尽可能独立，这一点我们可以认为尽可能做到，比如说对于训练样本进行采样，人为令每一个学习器的训练数据存在不同。但是这样操作的前提就是学习器数据不可以太寒酸，如果每一个学习器的数据都不重合，那很可能导致训练样本严重不足，所以，我们考虑使用相互之间有交叠的采样子集。</p>
+<p>​	Bagging正式这个并行式学习的最著名的代表。使用的是自助采样法。每次随机抽取后放回。这样做大概能保证初始训练集中63.2%的样本出现在采样集中。</p>
+<p><img src="/./../pic/image-20240108193319577.png" alt="image-20240108193319577"></p>
+<p>​	按照这样的采样方法，我们采样T个数据量为m的采样集。对于每一个采样集训练一个学习器，然后集合。这里对于分类任务简单投票，对于回归任务简单平均，同票随机。</p>
+<p>​	显然，Bagging算法我们训练基学习器越多效果越好，但是因为边际效应的存在，我们一般不会无限制的训练。一般根据D（特征维度数目）来决定，如果是分类问题，就取到D<sup>0.5</sup>，如果是回归的话，就取到D&#x2F;3</p>
+<h2 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h2><p>​	实质上就是Bagging算法在降低方差的路径上的延伸。</p>
+<p>​	牺牲了一些可解释性，令模型的效果更加稳定。</p>
+<p>​	每次训练，不仅只取一部分数据，还对于特征进行随机选取。</p>
+<h1 id="考点"><a href="#考点" class="headerlink" title="考点"></a>考点</h1><p>​	直到Bagging和boosting的区别和各自的特点就行。</p>
+<p>​	boosting中需要知道adaboost和GBDT就行了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/" data-id="cls1g4min00000gue965wg8l5" data-title="集成学习" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/01/31/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">支持向量机</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">国科大模式识别与机器学习23秋季学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/">集成学习</a>
+          </li>
+        
+          <li>
+            <a href="/2024/01/31/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/">支持向量机</a>
+          </li>
+        
+          <li>
+            <a href="/2024/01/31/%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/">半监督学习</a>
+          </li>
+        
+          <li>
+            <a href="/2024/01/30/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/">贝叶斯分类器</a>
+          </li>
+        
+          <li>
+            <a href="/2024/01/29/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
