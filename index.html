@@ -73,6 +73,154 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-降维与度量学习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/01/31/%E9%99%8D%E7%BB%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time class="dt-published" datetime="2024-01-31T07:09:22.000Z" itemprop="datePublished">2024-01-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/01/31/%E9%99%8D%E7%BB%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/">降维与度量学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="降维与度量学习"><a href="#降维与度量学习" class="headerlink" title="降维与度量学习"></a>降维与度量学习</h1><h2 id="k近邻学习"><a href="#k近邻学习" class="headerlink" title="k近邻学习"></a>k近邻学习</h2><p>​	也就是KNN，是一种常用的监督学习方法。工作机制为：给定测试样本，找最近的k个训练样本，基于这k个邻居的信息来进行预测。</p>
+<p>​	面对分类：投票法</p>
+<p>​	面对回归：平均法</p>
+<p><img src="/./../pic/image-20231206153222212.png" alt="image-20231206153222212"></p>
+<p>​	KNN的关键参数：k，根据上图，我们会发现，k的选择会直接影响到测试样本的输出结果。</p>
+<p>​	假设，此时我们面对一个分类问题设置k&#x3D;1，也就是说，我们直接选择使用和测试样本最近的训练样本标签作为输出结果。此时我们会发现：</p>
+<p><img src="/./../pic/image-20231206153636052.png" alt="image-20231206153636052"></p>
+<p>​	这个简单的分类器，泛化错误率不超过贝叶斯最优分类器错误率的两倍、</p>
+<h2 id="低维嵌入"><a href="#低维嵌入" class="headerlink" title="低维嵌入"></a>低维嵌入</h2><p>​	上一节讨论的前提：任意测试样本附近一定距离，能找到测试样本</p>
+<p>​	but！</p>
+<p>​	既然这个事情是前提，就说明现实的任务中这个部分的内容往往很难实现。</p>
+<p>​	why？</p>
+<p>​	这个前提的另一种说法就是要求数据的密度满足一定条件，可以通过归一化划定对应范围。但是随着维度的增加，数据必然被稀释，此时如果还要满足相同的密度要求，需要的数据量呈现指数级上升。——维度灾难</p>
+<p>​	所以说，高维不行！我们要降维。下图为一个直观的例子：</p>
+<p>​	<img src="/./../pic/image-20231206161224025.png" alt="image-20231206161224025"></p>
+<p>​	要求：原始空间中的样本之间的距离在低维空间中得以保持</p>
+<p>​	经典的降维方法：MDS</p>
+<h3 id="MDS"><a href="#MDS" class="headerlink" title="MDS"></a>MDS</h3><p>​	这是一种基于距离度量的数据降维方法，在从高维转换为低维的数据的过程中，样本的相对位置关系不变。</p>
+<p>​	优化函数：</p>
+<p>​	<img src="/./../pic/image-20231206181954812.png" alt="image-20231206181954812"></p>
+<p>​	</p>
+<p>​	高维样本之间的距离，计算方法很多，最简单的就是欧氏距离，或者别的也可以，只要满足上述三个要求就行。</p>
+<p>​	更像是一种数据可视化的方法。</p>
+<p>​	由优化函数可知，这个算法是没有唯一解的。并且直接计算Z比较困难。所以我们转换思路，计算B矩阵，这里的B&#x3D;Z<sup>T</sup>Z，这样B也是一个样本数量尺寸的方阵。只要得到B，我们可以通过特征值分解计算得到Z</p>
+<p><img src="/./../pic/image-20231206183357731.png" alt="image-20231206183357731"></p>
+<p>​	基于一开始的优化函数和B的定义，可以得到四个等式，其中b<sub>ii</sub>，b<sub>jj</sub>，b<sub>ij</sub>，以及B的迹是未知数，四个等式，四个未知数，可解得结果：</p>
+<p>​	 <img src="/./../pic/image-20231206183516413.png" alt="image-20231206183516413"></p>
+<p>​	这里的B是一个m*m维度的向量，m为样本个数。</p>
+<p>​	得到B之后，需要对其进行特征值分解，进行计算对应的降维后的坐标。</p>
+<p>​	或者，也可以加一步，进行一下数据的中心化，这一步不影响映射后样本的相对位置。但是或许可以有助于数据低维下的可视化表示。</p>
+<p><img src="/./../pic/image-20231207165328239.png" alt="image-20231207165328239"></p>
+<p><img src="/./../pic/image-20231207165347367.png" alt="image-20231207165347367"></p>
+<p>​	<img src="/./../pic/image-20231207165407700.png" alt="image-20231207165407700"></p>
+<h2 id="主成分分析（PCA）"><a href="#主成分分析（PCA）" class="headerlink" title="主成分分析（PCA）"></a>主成分分析（PCA）</h2><p>​	最常用的一种降维方法。类似投影的理解方式。通过将数据映射到一个超平面上进行降维。</p>
+<p>​	如果有这样的超平面，他应该有以下性质：</p>
+<p>​	1.最近重构性</p>
+<p>​	2.最大可分性</p>
+<p>​	概括，希望投影过去的数据投影距离短，彼此分得开。</p>
+<p>​	基于这个目标得到的优化函数为：</p>
+<p><img src="/./../pic/image-20231206185248508.png" alt="image-20231206185248508"></p>
+<p>​	PCA求解方式：</p>
+<p><img src="/./../pic/image-20231206185850539.png" alt="image-20231206185850539"></p>
+<p>​	PCA的朴素理解：去中心化之后，找d’个数据在这个方向上方差最大的方向，把这些方向向量拼一个超平面实现映射。</p>
+<p>​	计算方式：计算给定数据的协方差矩阵的特征值，按从大到小，计算特征向量构成W。W为投影矩阵。选取特征值在全部特征值的占比，就是投影保留数据能量的比例。如下图所示：</p>
+<p>​	<img src="/./../pic/image-20231206191403705.png" alt="image-20231206191403705"></p>
+<p>​	PCA的工作：舍弃掉一些没有价值的维度，降低数据密度顺便一定程度上去噪。</p>
+<h2 id="核化线性降维"><a href="#核化线性降维" class="headerlink" title="核化线性降维"></a>核化线性降维</h2><p>​	为什么要引出核化降维？</p>
+<p><img src="/./../pic/image-20231206191636164.png" alt="image-20231206191636164"></p>
+<p>​	那怎么办呢？</p>
+<p>​	先核化，使用一个非线性的映射，把数据X映射到一个高维甚至是无穷维度的空间，使其线性可分，再PCA降维。</p>
+<h3 id="核化操作"><a href="#核化操作" class="headerlink" title="核化操作"></a>核化操作</h3><p>​	此处对于整体输入数据视作：</p>
+<p><img src="/./../pic/image-20231207153515951.png" alt="image-20231207153515951"></p>
+<p>​	核化操作为：</p>
+<p><img src="/./../pic/image-20231207153551917.png" alt="image-20231207153551917"></p>
+<p><img src="/./../pic/image-20231207153633270.png" alt="image-20231207153633270"></p>
+<p>​	这里的z<sub>i</sub>就是x<sub>i</sub>在高维空间的映射。此时的PCA计算为下式：</p>
+<p><img src="/./../pic/image-20231207161126432.png" alt="image-20231207161126432"></p>
+<p>​	完成映射操作之后，在新的特征空间中，进行PCA降维。</p>
+<p>​	但是，我们知道再PCA的计算过程中，需要去计算协方差矩阵的特征值。但是我们这里映射过的数据空间因为核函数没有显式的一个映射定义，这就导致了协方差矩阵是不能直接求解的。</p>
+<p><img src="/./../pic/image-20231207161302779.png" alt="image-20231207161302779"></p>
+<p>​	关于核函数，我们知道这不是能随便定义的，另外，我们虽然不能直接给出显式的一个映射定义，但是对于映射后的两个元素之间的乘积，我们是需要核函数给出的。</p>
+<p><img src="/./../pic/image-20231207155331821.png" alt="image-20231207155331821"></p>
+<p>​	对于样本x，投影之后第j维度的坐标为：</p>
+<p><img src="/./../pic/image-20231207160950179.png" alt="image-20231207160950179"></p>
+<p><img src="/./../pic/image-20231207161358522.png" alt="image-20231207161358522"></p>
+<p>​	KPCA的流程为：</p>
+<p><img src="/./../pic/image-20231207161734609.png" alt="image-20231207161734609"></p>
+<p>​	此时得到的结果为：</p>
+<p><img src="/./../pic/image-20231207161752913.png" alt="image-20231207161752913"></p>
+<h2 id="流形学习"><a href="#流形学习" class="headerlink" title="流形学习"></a>流形学习</h2><p>​	流形学习（manifold learning），是一类借鉴了拓扑流形概念的降维方法。</p>
+<p>​	低维流形嵌入高维空间，依旧存在部分欧式空间性质。</p>
+<h3 id="等度量映射"><a href="#等度量映射" class="headerlink" title="等度量映射"></a>等度量映射</h3><p>​	原理：低维映射到高维之后，直接计算高维空间的距离存在误导性，因为高维空间中的直线距离，在低维空间中可能是不可达的。</p>
+<p>​	所以，引入一个概念：测地线。虽然在高维空间中存在直线距离，但是我们不能脱离开低维超平面。在低维超平面上的最短距离就是测地线距离。</p>
+<p>​	那么，我们应该如何计算测地线距离呢？</p>
+<p>​	我们可以利用流形在局部与欧式空间同胚的性质，基于欧式距离，找到一个近邻点，然后近邻点之间相互存在链接。通过近连接图逼近测地线。</p>
+<p>​	类似迪杰斯特拉算法，在给定的数据（高维空间）中，计算两点之间的最短路径。</p>
+<p>​	Isomap：迪杰斯特拉算法计算低维空间距离，然后dist(i,j)作为MDS算法的输入。得到对应的低维映射输出。</p>
+<h3 id="局部线性嵌入（LLE）"><a href="#局部线性嵌入（LLE）" class="headerlink" title="局部线性嵌入（LLE）"></a>局部线性嵌入（LLE）</h3><p>​	如果一个点的坐标可以通过领域样本的坐标通过线性组合重构出来。LLE希望这个关系在低维空间中也可以得到保持。</p>
+<p><img src="/./../pic/image-20231207192221104.png" alt="image-20231207192221104"></p>
+<p>​	对于每一个样本，一定可以计算出来重构系数。</p>
+<p><img src="/./../pic/image-20231207192240170.png" alt="image-20231207192240170"></p>
+<p>​	因为保持重构关系，所以重构系数在高维到低维的映射中不变。此时目标函数可以优化为：</p>
+<p><img src="/./../pic/image-20231207192707784.png" alt="image-20231207192707784"></p>
+<p>​	求解：</p>
+<p><img src="/./../pic/image-20231207192752244.png" alt="image-20231207192752244"></p>
+<p>​	这里获得的Z就是样本集合在低维空间的投影。</p>
+<h4 id="T-SNE"><a href="#T-SNE" class="headerlink" title="T-SNE"></a>T-SNE</h4><p>​	基本思想：高维空间相似的数据点，映射到低维空间也相似</p>
+<p>​	SNE：欧氏距离转换为用概率表示的相似性</p>
+<p>​	<img src="/./../pic/image-20231207195631045.png" alt="image-20231207195631045"></p>
+<p>​	<img src="/./../pic/image-20231207195718420.png" alt="image-20231207195718420"></p>
+<p>​	问题：高斯分布中的方差项参数由于数据分布不均，难以确定。</p>
+<p>​	采用参数困惑度进行计算。</p>
+<p><img src="/./../pic/image-20231207195918061.png" alt="image-20231207195918061"></p>
+<p>​	映射过去了，此时如何评判我们的映射做得怎么样？</p>
+<p><img src="/./../pic/image-20231207200035591.png" alt="image-20231207200035591"></p>
+<p>​	如果，按照我们之前的思想，高维相似，低维也相似，那么这个时候q<sub>ij</sub>和p<sub>ij</sub>应该相等。但我们也知道，这个不太现实，所以得到优化函数：</p>
+<p><img src="/./../pic/image-20231207200203599.png" alt="image-20231207200203599"></p>
+<p>​	为什么低维空间使用T分布，因为T分布的尾端（两头）更高，适合表示长尾现象。</p>
+<p><img src="/./../pic/image-20231207201201444.png" alt="image-20231207201201444"></p>
+<p>​	可以采用梯度下降法来求解：</p>
+<p><img src="/./../pic/image-20231207201235757.png" alt="image-20231207201235757"></p>
+<p>​	T-SNE的缺点：</p>
+<p><img src="/./../pic/image-20231207201256895.png" alt="image-20231207201256895"></p>
+<h1 id="考点"><a href="#考点" class="headerlink" title="考点"></a>考点</h1><p>​	需要知道两种非线性降维方法的思路。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/01/31/%E9%99%8D%E7%BB%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/" data-id="cls1g70hs00007kue73heh7ky" data-title="降维与度量学习" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-集成学习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/" class="article-date">
@@ -641,6 +789,10 @@
       <ul>
         
           <li>
+            <a href="/2024/01/31/%E9%99%8D%E7%BB%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/">降维与度量学习</a>
+          </li>
+        
+          <li>
             <a href="/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/">集成学习</a>
           </li>
         
@@ -654,10 +806,6 @@
         
           <li>
             <a href="/2024/01/30/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/">贝叶斯分类器</a>
-          </li>
-        
-          <li>
-            <a href="/2024/01/29/hello-world/">Hello World</a>
           </li>
         
       </ul>
