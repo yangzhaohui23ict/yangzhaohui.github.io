@@ -16,10 +16,10 @@
 <meta property="og:image" content="http://example.com/pic/image-20231212153859340.png">
 <meta property="og:image" content="http://example.com/pic/image-20231212154031305.png">
 <meta property="og:image" content="http://example.com/pic/image-20231212154849322.png">
-<meta property="og:image" content="http://example.com/image-20231212155021145.png">
-<meta property="og:image" content="c:\Users\10562\Desktop\%E6%80%BB%E9%A2%86%E6%96%87%E4%BB%B6%E5%A4%B9\%E7%A8%8B%E5%BA%8F%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F\hexo\source\pic\image-20231212155103749.png">
-<meta property="og:image" content="c:\Users\10562\Desktop\%E6%80%BB%E9%A2%86%E6%96%87%E4%BB%B6%E5%A4%B9\%E7%A8%8B%E5%BA%8F%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F\hexo\source\pic\image-20231213191010521.png">
-<meta property="og:image" content="c:\Users\10562\Desktop\%E6%80%BB%E9%A2%86%E6%96%87%E4%BB%B6%E5%A4%B9\%E7%A8%8B%E5%BA%8F%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F\hexo\source\pic\image-20231213191034566.png">
+<meta property="og:image" content="http://example.com/..%5Cpic%5Cimage-20231212155021145.png">
+<meta property="og:image" content="http://example.com/..%5Cpic%5Cimage-20231212155103749.png">
+<meta property="og:image" content="http://example.com/_posts/pic/image-20231213191010521-1706678437483-7.png">
+<meta property="og:image" content="http://example.com/_posts/pic/image-20231213191034566.png">
 <meta property="og:image" content="c:\Users\10562\Desktop\%E6%80%BB%E9%A2%86%E6%96%87%E4%BB%B6%E5%A4%B9\%E7%A8%8B%E5%BA%8F%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F\hexo\source\pic\image-20231214214111977.png">
 <meta property="og:image" content="c:\Users\10562\Desktop\%E6%80%BB%E9%A2%86%E6%96%87%E4%BB%B6%E5%A4%B9\%E7%A8%8B%E5%BA%8F%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F\hexo\source\pic\image-20231214214216441.png">
 <meta property="og:image" content="c:\Users\10562\Desktop\%E6%80%BB%E9%A2%86%E6%96%87%E4%BB%B6%E5%A4%B9\%E7%A8%8B%E5%BA%8F%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F\hexo\source\pic\image-20231214214237021.png">
@@ -39,7 +39,7 @@
 <meta property="og:image" content="c:\Users\10562\Desktop\%E6%80%BB%E9%A2%86%E6%96%87%E4%BB%B6%E5%A4%B9\%E7%A8%8B%E5%BA%8F%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F\hexo\source\pic\image-20231214212717451.png">
 <meta property="og:image" content="c:\Users\10562\Desktop\%E6%80%BB%E9%A2%86%E6%96%87%E4%BB%B6%E5%A4%B9\%E7%A8%8B%E5%BA%8F%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F\hexo\source\pic\image-20231214212727884.png">
 <meta property="article:published_time" content="2024-01-30T06:04:56.000Z">
-<meta property="article:modified_time" content="2024-01-31T05:18:59.564Z">
+<meta property="article:modified_time" content="2024-01-31T05:20:50.089Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="模式识别与机器学习">
 <meta name="twitter:card" content="summary">
@@ -140,16 +140,16 @@
 <p>​	最简单的情况，为了最小化分类错误率，可以将误判损失记作：</p>
 <p><img src="/./pic/image-20231212154849322.png" alt="image-20231212154849322"></p>
 <p>​	这种情况下，损失或者说风险就等于是错误率等于1-正确率：</p>
-<p><img src="/./image-20231212155021145.png" alt="image-20231212155021145"></p>
+<p><img src="/..%5Cpic%5Cimage-20231212155021145.png" alt="image-20231212155021145"></p>
 <p>​	此时对应的最优分类器就是（和上面那个等价，特殊情况的另一个表示方式）：</p>
-<p><img src="C:\Users\10562\Desktop\总领文件夹\程序快捷方式\hexo\source\pic\image-20231212155103749.png" alt="image-20231212155103749"></p>
+<p><img src="/..%5Cpic%5Cimage-20231212155103749.png" alt="image-20231212155103749"></p>
 <p>​	所以，我们需要知道后验概率P(c|x)，但是这又谈何容易？</p>
 <p>​	换个说法，我要是已知这个数据，多你一个方法不多，少你一个不少，贝叶斯之所以经得起时间的考验，就是因为，我们可以通过一些已知条件和概率论知识，计算得到后验概率也就是P(c|x)的<strong>估计</strong>。</p>
 <p>​	对于后验概率的计算，我们这里也有两个策略，一来是给定一个X，我们通过直接建模来预测c，这就是判别式模型（比如决策树，支持向量机），另一个方法是对于P(x,c)这个联合概率分布建模，基于此计算P(c|x)，这就是生成式模型。</p>
 <p>​	对于生成式模型，之所以需要对于P(x,c)这个联合概率分布建模，显然是因为条件概率的公式：</p>
-<p><img src="C:\Users\10562\Desktop\总领文件夹\程序快捷方式\hexo\source\pic\image-20231213191010521.png" alt="image-20231213191010521"></p>
+<p><img src="/./../_posts/pic/image-20231213191010521-1706678437483-7.png" alt="image-20231213191010521"></p>
 <p>​	基于贝叶斯定理，上式又等于：</p>
-<p><img src="C:\Users\10562\Desktop\总领文件夹\程序快捷方式\hexo\source\pic\image-20231213191034566.png" alt="image-20231213191034566"></p>
+<p><img src="/./../_posts/pic/image-20231213191034566.png" alt="image-20231213191034566"></p>
 <p>​	到这里都是不难理解的，其中P(c)就是类先验概率，另外，P(X)是和类标记无关的，所以我们的问题其实就是基于训练数据，估计分子部分。</p>
 <p>​	诶，问题来了，我们得怎么估计呢？</p>
 <p>​	P(c)是什么？是类先验概率（屁话），是样本空间中各类样本的占比，10个样本，1类别有5个，P（1）就是0.5，根据大数定律，这个搞法在训练集充足，独立同分布的情况下，是靠谱的。</p>
