@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>半监督学习 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="半监督学习未标记样本​	我们在丰收季节来到瓜田，满地都是西瓜，瓜农说这三四个都是好瓜，又指着地里的五六个瓜说这些还不好，还需要长几天。就这些信息，我们能够构建一个模型来判断这些瓜那些是好瓜呢？ ​	显然，这个在操作上是可以做到的，但是，我们只有不到十个瓜来做训练样本，这明显有些太少了。于是，我们把罪恶的目光投向了地里其他的瓜。 ​	什么意思呢？我们现在有一个有标记样本集合Dl，还有一个未标记样本集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="半监督学习">
+<meta property="og:url" content="http://example.com/2024/01/31/%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="半监督学习未标记样本​	我们在丰收季节来到瓜田，满地都是西瓜，瓜农说这三四个都是好瓜，又指着地里的五六个瓜说这些还不好，还需要长几天。就这些信息，我们能够构建一个模型来判断这些瓜那些是好瓜呢？ ​	显然，这个在操作上是可以做到的，但是，我们只有不到十个瓜来做训练样本，这明显有些太少了。于是，我们把罪恶的目光投向了地里其他的瓜。 ​	什么意思呢？我们现在有一个有标记样本集合Dl，还有一个未标记样本集">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/pic/image-20231208104945996.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208114551259.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208115853110.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208134613520.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208135358637.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208141852479.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208143004618.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208153643976.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208143646181.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208144445992.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208144743331.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208145016465.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208145155398.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208145514931.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208150438984.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208150912949.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208151012456.png">
+<meta property="og:image" content="http://example.com/pic/image-20231208151105095.png">
+<meta property="article:published_time" content="2024-01-31T06:14:00.000Z">
+<meta property="article:modified_time" content="2024-01-31T06:14:44.997Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="国科大模式识别与机器学习23秋季学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/pic/image-20231208104945996.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-半监督学习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/01/31/%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time class="dt-published" datetime="2024-01-31T06:14:00.000Z" itemprop="datePublished">2024-01-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      半监督学习
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="半监督学习"><a href="#半监督学习" class="headerlink" title="半监督学习"></a>半监督学习</h1><h2 id="未标记样本"><a href="#未标记样本" class="headerlink" title="未标记样本"></a>未标记样本</h2><p>​	我们在丰收季节来到瓜田，满地都是西瓜，瓜农说这三四个都是好瓜，又指着地里的五六个瓜说这些还不好，还需要长几天。就这些信息，我们能够构建一个模型来判断这些瓜那些是好瓜呢？</p>
+<p>​	显然，这个在操作上是可以做到的，但是，我们只有不到十个瓜来做训练样本，这明显有些太少了。于是，我们把罪恶的目光投向了地里其他的瓜。</p>
+<p>​	什么意思呢？我们现在有一个有标记样本集合D<sub>l</sub>，还有一个未标记样本集合D<sub>u</sub>，并且我们可以确定l&lt;&lt;u，所以为了确保模型的能力，我们要把D<sub>u</sub>用上。最简单的，就是把D<sub>u</sub>也一个个标记上。</p>
+<p>​	但是，有这功夫我干什么不好呢？</p>
+<p>​	新方案：用有标记的样本，训练一个模型，然后，用这个模型去找瓜，确认好坏之后，加入有标记样本集合，重新训练，每一次都找对于改善模型性能有帮助的瓜。这种学习方式称之为“主动学习”。可以用较少的查询来获得尽可能好的性能。</p>
+<p>​	so，我们该怎么确认瓜的好坏呢？如果我们不能额外获得新的标记，我们还可以这样做吗？</p>
+<p>​	答案是可以的。</p>
+<p>​	为什么？因为未标记不等于没价值（公式秒了），他们和有标记样本是独立同分布采样出来的，他们的分布信息是对于模型有用的。</p>
+<p><img src="/./../pic/image-20231208104945996.png" alt="image-20231208104945996"></p>
+<p>​	让学习器不依赖外界交互（类似前面的用这个模型去找瓜，确认好坏这个行为），利用未标记样本提升学习性能，这就是半监督学习。是对于“有标记数据少，未标记数据多”这个普遍现象的一种应对方式。</p>
+<p>​	如何利用未标记样本，这需要我们将未标记样本的数据分布于已经标记的数据的类别之间进行联系。</p>
+<p>​	最常见的就是“聚类假设”还有“流形假设”，其本质都是相似的样本拥有相似的输出这个基本假设。</p>
+<h2 id="生成式方法"><a href="#生成式方法" class="headerlink" title="生成式方法"></a>生成式方法</h2><p>​	假设所有数据（有无标记都算上），是由同一个潜在的模型生成的，我们可以通过EM算法，进行极大似然估计，求解这个模型的参数。</p>
+<p>​	可以假设是高斯混合模型，那么样本基于如下概率密度生成：</p>
+<p><img src="/./../pic/image-20231208114551259.png" alt="image-20231208114551259"></p>
+<p>​	高斯混合模型这部分在聚类中进行过计算和推导。</p>
+<h2 id="半监督SVM"><a href="#半监督SVM" class="headerlink" title="半监督SVM"></a>半监督SVM</h2><p>​	也叫S3VM，是聚类假设在考虑线性超平面划分之后的推广。</p>
+<p>​	<img src="/./../pic/image-20231208115853110.png" alt="image-20231208115853110"></p>
+<p>​	S3VM的工作目标是：找到能将两类有标记的样本分开，并且穿过数据低密度区域的超平面进行划分。</p>
+<p>​	在S3VM中，最著名的是TSVM。也是一种针对二分类问题的学习方法。试图考虑对于未标记样本进行各种可能得标记指派，尝试将每一个未标记样本分作正反例，然后在所有结果中，找一个间隔最大化的超平面。最后，以这个超平面对应的标记指派作为结果。</p>
+<p>​	形式化解释：就是对于D<sub>u</sub>&#x3D;{x<sub>l+1</sub>,…,x<sub>l+u</sub>}，分别给定一个对应的y<sub>i</sub>，使得：</p>
+<p><img src="/./../pic/image-20231208134613520.png" alt="image-20231208134613520"></p>
+<p>​	基于上面的目标函数，我们可以发现：</p>
+<p>​	1.这是一个软间隔SVM</p>
+<p>​	2.对于有无标签的样本，他们对于模型的重要程度不同。</p>
+<p>​	w.b确定了划分的超平面，系数为松弛向量，C<sub>l</sub>,C<sub>u</sub>是用户指定的参数，用来平衡有无标记样本对模型的影响程度。</p>
+<p>​	对于TSVM，使用局部搜索迭代求解。每一次找两个之前的SVM划分错误的未标记样本，交换他们的标记，重新计算。</p>
+<p>​	<img src="/./../pic/image-20231208135358637.png" alt="image-20231208135358637"></p>
+<h2 id="图半监督学习"><a href="#图半监督学习" class="headerlink" title="图半监督学习"></a>图半监督学习</h2><p>​	给定一个数据集，可以映射为一个图，数据集中的每一个样本对应一个节点，如果样本之间的相似度很高，则对应节点之间存在一条边。边的强度或者说对应权重正比于样本之间的相似度。然后，在这个图上，我们可以将有标记的点视为染色，其余视作无色，于是半监督学习就对应于颜色的传播过程。</p>
+<p>​	构建图的过程中，对于相似度的计算方式基于高斯函数定义为：</p>
+<p><img src="/./../pic/image-20231208141852479.png" alt="image-20231208141852479"></p>
+<p>​	从我们朴素的理解中，我们能够想到，相似的样本应该有着相似的标记。进而我们可以联想到，在这个全部样本生成的图中，关于标签的变化应该是平滑的。</p>
+<p>​	进而，我们开始思考关于图的平滑性的定义：</p>
+<p><img src="/./../pic/image-20231208143004618.png" alt="image-20231208143004618"></p>
+<p>​	补充一下图的平滑性：</p>
+<p><img src="/./../pic/image-20231208153643976.png" alt="image-20231208153643976"></p>
+<p>​	在西瓜书中，这个地方有另一个称呼，叫做关于f的能量函数，其中f为关于对有无标记样本的预测结果组成的矩阵。f&#x3D;(f<sub>l</sub><sup>T</sup>,f<sub>u</sub><sup>T</sup>)，其中f<sub>l</sub>&#x3D;(f(x<sub>1</sub>);…;f(x<sub>l</sub>))，对于f<sub>u</sub>同理，另外，此处的D是一个对角阵，对角元素分别为1-l+u行的W阵元素之和：</p>
+<p><img src="/./../pic/image-20231208143646181.png" alt="image-20231208143646181"></p>
+<p>​	但是这样来看，似乎平滑性更好理解一些。</p>
+<p>​	这里我们需要对f求导，寻找目标函数的最小值。对于使目标函数最小的f，我们可以预料到的是有标记部分的预测结果也就是f<sub>l</sub>&#x3D;(f(x<sub>1</sub>);…;f(x<sub>l</sub>))，应该是分别等于对应的标签y<sub>i</sub>。而在未标记的样本上满足Lf&#x3D;(D-W)f&#x3D;0，这个可以通过对于13.12公式求导获得。</p>
+<p>​	因为我们的矩阵存在有无标签样本的划分，所以，我们采用分块矩阵的方式来表示这个公式，按照有标签样本l的行列数划分，即：</p>
+<p>​	<img src="/./../pic/image-20231208144445992.png" alt="image-20231208144445992"></p>
+<p>​	基于此，重写目标函数为：</p>
+<p><img src="/./../pic/image-20231208144743331.png" alt="image-20231208144743331"></p>
+<p>​	后续推导：1.求导，其实到这里就可以得到结果了：</p>
+<p><img src="/./../pic/image-20231208145016465.png" alt="image-20231208145016465"></p>
+<p>​	2.一些补充，新设置一些变量便于计算：</p>
+<p><img src="/./../pic/image-20231208145155398.png" alt="image-20231208145155398"></p>
+<p>​	此时，就可以做到已知给定标签，计算预测未标记样本，另外也得到了最优解的存在条件，即I-P<sub>UU</sub>这个矩阵可逆。</p>
+<p>​	对于上式的补充之我们为什么要引入一个P呢？</p>
+<p>​	<img src="/./../pic/image-20231208145514931.png" alt="image-20231208145514931"></p>
+<h4 id="图半监督学习补充之多分类问题"><a href="#图半监督学习补充之多分类问题" class="headerlink" title="图半监督学习补充之多分类问题"></a>图半监督学习补充之多分类问题</h4><p>​	此时W矩阵和图的构建不变，D矩阵也不变，此时对于f矩阵存在概念扩充：f&#x3D;(f<sub>1</sub><sup>T</sup>,f<sub>2</sub><sup>T</sup>,f<sub>3</sub><sup>T</sup>,…,f<sub>分类个数</sub><sup>T</sup>)<sup>T</sup>，此时整个矩阵的形状为(l+U)*C，C为标签类别的个数：</p>
+<p>​	<img src="/./../pic/image-20231208150438984.png" alt="image-20231208150438984"></p>
+<p>​	右上角的矩阵就是S计算的公式：</p>
+<p><img src="/./../pic/image-20231208150912949.png" alt="image-20231208150912949"></p>
+<p>​	该算法对应正则化框架：</p>
+<p><img src="/./../pic/image-20231208151012456.png" alt="image-20231208151012456"></p>
+<p>对于整个基于图的半监督学习的算法的总结：</p>
+<p><img src="/./../pic/image-20231208151105095.png" alt="image-20231208151105095"></p>
+<h2 id="半监督聚类"><a href="#半监督聚类" class="headerlink" title="半监督聚类"></a>半监督聚类</h2><p>​	众所周知，聚类是典型的无监督学习任务，但是聚类不用是本身的特性，如果有一些有标签的数据，我们也同样可以获得更好的聚类效果。</p>
+<p>​	标签在聚类这里的第一类应用就是补充必连和勿连约束，见字知意。</p>
+<p>​	约束K均值算法就是利用这个监督信息的代表，利用了样本集和必连勿连关系，算法本身和之前的K均值算法没有什么本质上的区别，就是在计算出来了一个样本最近的簇之后，要判断一个是否会违背必连勿连关系。如果违背了，会返回错误提示。</p>
+<p>​	需要注意，这里的必连勿连关系需要正反两对。(a,b),(b,a)都得有。</p>
+<p>​	标签的第二类应用就是少量有标记样本。什么意思呢？我们现在有一个样本集合D，我手里有一小批有标记样本，我知道其中每一个样本对应隶属于第几个簇。</p>
+<p>​	这个应用方式就很简单了，直接替换K均值算法中随机取点做种子的步骤，用他们作为聚类中心且迭代过程中不改变这些隶属关系就可以了。</p>
+<h1 id="考试要求"><a href="#考试要求" class="headerlink" title="考试要求"></a>考试要求</h1><p>​	能写出来一两种半监督学习算法的思想就行。</p>
+<p>​	</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/01/31/%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" data-id="cls1e7nuo0000c8ueakx59mrb" data-title="半监督学习" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/01/30/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">贝叶斯分类器</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">国科大模式识别与机器学习23秋季学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/01/31/%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/">半监督学习</a>
+          </li>
+        
+          <li>
+            <a href="/2024/01/30/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/">贝叶斯分类器</a>
+          </li>
+        
+          <li>
+            <a href="/2024/01/29/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
