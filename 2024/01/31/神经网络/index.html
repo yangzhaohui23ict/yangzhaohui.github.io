@@ -1,137 +1,159 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>神经网络 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="神经网络神经元模型​	神经元细胞通过突触链接，突触通过电化学过程传递信息。在电信号的点位超过一个阈值之后，链接的神经元被激活。基于此，提出M-P神经元模型，是对于上述生物情况的简化。  ​	激活函数的种类很丰富，用处就是将输入的数值以一种非线性的方式映射为输出0或者1。阶跃函数存在不连续不光滑的问题，常用的激活函数为sigmoid函数。后来逐渐被更简单的Relu函数替代，对于不同类型的问题，要选择">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>神经网络 | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="神经网络神经元模型​	神经元细胞通过突触链接，突触通过电化学过程传递信息。在电信号的点位超过一个阈值之后，链接的神经元被激活。基于此，提出M-P神经元模型，是对于上述生物情况的简化。  ​	激活函数的种类很丰富，用处就是将输入的数值以一种非线性的方式映射为输出0或者1。阶跃函数存在不连续不光滑的问题，常用的激活函数为sigmoid函数。后来逐渐被更简单的Relu函数替代，对于不同类型的问题，要选择">
 <meta property="og:type" content="article">
 <meta property="og:title" content="神经网络">
 <meta property="og:url" content="http://example.com/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="神经网络神经元模型​	神经元细胞通过突触链接，突触通过电化学过程传递信息。在电信号的点位超过一个阈值之后，链接的神经元被激活。基于此，提出M-P神经元模型，是对于上述生物情况的简化。  ​	激活函数的种类很丰富，用处就是将输入的数值以一种非线性的方式映射为输出0或者1。阶跃函数存在不连续不光滑的问题，常用的激活函数为sigmoid函数。后来逐渐被更简单的Relu函数替代，对于不同类型的问题，要选择">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/pic/image-20240109130926554.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109132542835.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109132811845.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109132934843.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109133425810.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109133449517.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109134838145.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109141128012.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109142009167.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109142102164.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109142629553.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109142845505.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109143114881.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109143956883.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109144033788.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109144040172.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109144050316.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109144101238.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109144302849.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109144327721.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109145046549.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109150000681.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109151721198.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109151758548.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109151938441.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109154455761.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109155812227.png">
-<meta property="og:image" content="http://example.com/pic/image-20240109160041833.png">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:published_time" content="2024-01-31T07:14:51.000Z">
 <meta property="article:modified_time" content="2024-01-31T07:15:09.643Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="国科大模式识别与机器学习23秋季学习笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/pic/image-20240109130926554.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-  
-<meta name="generator" content="Hexo 6.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '神经网络',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-31 15:15:09'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main"><article id="post-神经网络" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="article-date">
-  <time class="dt-published" datetime="2024-01-31T07:14:51.000Z" itemprop="datePublished">2024-01-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      神经网络
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
+        get: key => {
+          const itemStr = localStorage.getItem(key)
       
-        <h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><h2 id="神经元模型"><a href="#神经元模型" class="headerlink" title="神经元模型"></a>神经元模型</h2><p>​	神经元细胞通过突触链接，突触通过电化学过程传递信息。在电信号的点位超过一个阈值之后，链接的神经元被激活。基于此，提出M-P神经元模型，是对于上述生物情况的简化。</p>
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><span class="site-name">Hexo</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">神经网络</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-01-31T07:14:51.000Z" title="Created 2024-01-31 15:14:51">2024-01-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-01-31T07:15:09.643Z" title="Updated 2024-01-31 15:15:09">2024-01-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="神经网络"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><h2 id="神经元模型"><a href="#神经元模型" class="headerlink" title="神经元模型"></a>神经元模型</h2><p>​	神经元细胞通过突触链接，突触通过电化学过程传递信息。在电信号的点位超过一个阈值之后，链接的神经元被激活。基于此，提出M-P神经元模型，是对于上述生物情况的简化。</p>
 <p><img src="/./../pic/image-20240109130926554.png" alt="image-20240109130926554"></p>
 <p>​	激活函数的种类很丰富，用处就是将输入的数值以一种<strong>非线性</strong>的方式映射为输出0或者1。阶跃函数存在不连续不光滑的问题，常用的激活函数为sigmoid函数。后来逐渐被更简单的Relu函数替代，对于不同类型的问题，要选择不同的激活函数。</p>
 <h2 id="感知机与多层网络"><a href="#感知机与多层网络" class="headerlink" title="感知机与多层网络"></a>感知机与多层网络</h2><p>​	感知机由两层神经元组成，输出层位上面提到的M-P神经元。可以实现逻辑运算（与，或，非），这里使用的是sigmoid函数做激活，只要输入层计算不小于0.5，输出结果为1.</p>
@@ -196,158 +218,4 @@
 <p>​	核心就是把过去的相关信息记录一下，共同作为输入。</p>
 <p><img src="/./../pic/image-20240109160041833.png" alt="image-20240109160041833"></p>
 <h1 id="考点"><a href="#考点" class="headerlink" title="考点"></a>考点</h1><p>​	就考一个freestyle，特定场景自己设计一个网络出来，言之有理即可。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" data-id="cls1gdcjf0000s8uehmd2evbg" data-title="神经网络" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2024/01/31/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          线性模型
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2024/01/31/%E5%88%A4%E5%88%AB%E5%BC%8F%E5%88%86%E7%B1%BB%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">判别式分类器</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">国科大模式识别与机器学习23秋季学习笔记</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/01/31/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/">线性模型</a>
-          </li>
-        
-          <li>
-            <a href="/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
-          </li>
-        
-          <li>
-            <a href="/2024/01/31/%E5%88%A4%E5%88%AB%E5%BC%8F%E5%88%86%E7%B1%BB%E5%99%A8/">判别式分类器</a>
-          </li>
-        
-          <li>
-            <a href="/2024/01/31/%E9%99%8D%E7%BB%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/">降维与度量学习</a>
-          </li>
-        
-          <li>
-            <a href="/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/">集成学习</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2024 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">http://example.com/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">国科大模式识别与机器学习23秋季学习笔记</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/01/31/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/" title="线性模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">线性模型</div></div></a></div><div class="next-post pull-right"><a href="/2024/01/31/%E5%88%A4%E5%88%AB%E5%BC%8F%E5%88%86%E7%B1%BB%E5%99%A8/" title="判别式分类器"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">判别式分类器</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/01/31/%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" title="半监督学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-31</div><div class="title">半监督学习</div></div></a></div><div><a href="/2024/01/30/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" title="贝叶斯分类器"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-30</div><div class="title">贝叶斯分类器</div></div></a></div><div><a href="/2024/01/31/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" title="支持向量机"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-31</div><div class="title">支持向量机</div></div></a></div><div><a href="/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/" title="集成学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-31</div><div class="title">集成学习</div></div></a></div><div><a href="/2024/01/31/%E9%99%8D%E7%BB%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/" title="降维与度量学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-31</div><div class="title">降维与度量学习</div></div></a></div><div><a href="/2024/01/31/%E5%88%A4%E5%88%AB%E5%BC%8F%E5%88%86%E7%B1%BB%E5%99%A8/" title="判别式分类器"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-31</div><div class="title">判别式分类器</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">1.</span> <span class="toc-text">神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E5%85%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">神经元模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E4%B8%8E%E5%A4%9A%E5%B1%82%E7%BD%91%E7%BB%9C"><span class="toc-number">1.2.</span> <span class="toc-text">感知机与多层网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95%EF%BC%88%E5%BF%AB%E9%80%9F%E6%A2%AF%E5%BA%A6%E8%AE%A1%E7%AE%97%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">反向传播算法（快速梯度计算）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD2-0%E8%AF%B4%E6%98%8E"><span class="toc-number">1.4.</span> <span class="toc-text">反向传播2.0说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">为什么要用深度学习模型？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">1.4.1.</span> <span class="toc-text">卷积神经网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">1.4.2.</span> <span class="toc-text">循环神经网络</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%80%83%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">考点</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><div class="content"><a class="title" href="/2024/01/31/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/" title="线性模型">线性模型</a><time datetime="2024-01-31T08:03:24.000Z" title="Created 2024-01-31 16:03:24">2024-01-31</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="神经网络">神经网络</a><time datetime="2024-01-31T07:14:51.000Z" title="Created 2024-01-31 15:14:51">2024-01-31</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/01/31/%E5%88%A4%E5%88%AB%E5%BC%8F%E5%88%86%E7%B1%BB%E5%99%A8/" title="判别式分类器">判别式分类器</a><time datetime="2024-01-31T07:12:29.000Z" title="Created 2024-01-31 15:12:29">2024-01-31</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/01/31/%E9%99%8D%E7%BB%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/" title="降维与度量学习">降维与度量学习</a><time datetime="2024-01-31T07:09:22.000Z" title="Created 2024-01-31 15:09:22">2024-01-31</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/" title="集成学习">集成学习</a><time datetime="2024-01-31T07:01:36.000Z" title="Created 2024-01-31 15:01:36">2024-01-31</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

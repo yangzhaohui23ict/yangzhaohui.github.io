@@ -1,1266 +1,283 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-02-02 14:08:46'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
 
-  
+        document.head.appendChild(script)
+      })
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-  
-<meta name="generator" content="Hexo 6.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-线性模型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/01/31/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/" class="article-date">
-  <time class="dt-published" datetime="2024-01-31T08:03:24.000Z" itemprop="datePublished">2024-01-31</time>
-</a>
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/01/31/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/">线性模型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="线性模型"><a href="#线性模型" class="headerlink" title="线性模型"></a>线性模型</h1><h2 id="基本形式"><a href="#基本形式" class="headerlink" title="基本形式"></a>基本形式</h2><p>​	大道至简，大象无形，大音希声~</p>
-<p>​	作为最简单的建模模型，线性建模是很多更强大更复杂的模型的基础。</p>
-<p>​	线性模型是通过对于样本的一些属性进行线性组合进而对于结果做出预测的函数。即：</p>
-<p><img src="/./../pic/image-20231218193746631.png" alt="image-20231218193746631"></p>
-<p>​	一般来说，也可以用向量模式表示：</p>
-<p><img src="/./../pic/image-20231218193807772.png" alt="image-20231218193807772"></p>
-<p>​	这里的w是一个向量，对应于每一个特征对于最后结果的贡献。这个也可以视作模型的可解释性。</p>
-<h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><p>​	这里我们可以先用最简单的情况来进行情形进行理解，也就是一个属性对应于一个结果，相当于一个平面几个点，叫你画条线叫这些点距离这条线越近越好。</p>
-<p>​	显然，我们要学习的就是：</p>
-<p><img src="/./../pic/image-20231218194145317.png" alt="image-20231218194145317"></p>
-<p>​	这里有两个未知数：w,b，都是单个实数，计算方式就是基于我们前面的约束条件，进行最小二乘法：</p>
-<p><img src="/./../pic/image-20231218194243116.png" alt="image-20231218194243116"></p>
-<p>​	显然，我们希望w和b的取值可以另这个式子尽可能小，所以我们需要对其进行求导：</p>
-<p><img src="/./../pic/image-20231218194702005.png" alt="image-20231218194702005"></p>
-<p>​	然后另这两个导数等于0，就可以得到对应的最优解公式：</p>
-<p><img src="/./../pic/image-20231218194833974.png" alt="image-20231218194833974"></p>
-<p>​	其中分子上的x杠是均值的意思</p>
-<p><img src="/./../pic/image-20231218194838918.png" alt="image-20231218194838918"></p>
-<p>​	基于此，我们可以稍微扩充一下我们之前的情形，我们希望可以带进来更多的属性，此时w从之前的单实数变向量。另外我们可以直接用增广向量的形式，把b也收进来，此时的数据格式为：</p>
-<p><img src="/./../pic/image-20231218195401787.png" alt="image-20231218195401787"></p>
-<p>​	右边是增广之后的w，两个矩阵这样相乘可以得到结果向量长度为m，这里m为样本个数。</p>
-<p>​	然后重走长征路，写目标函数，也就是我们计算参数的依据：</p>
-<p><img src="/./../pic/image-20231218195516643.png" alt="image-20231218195516643"></p>
-<p>​	这里不用b，因为b就在这个里面。</p>
-<p>​	对此求导结果为：</p>
-<p><img src="/./../pic/image-20231218195606486.png" alt="image-20231218195606486"></p>
-<p>​	另上式为0就可以得到最优解，但是因为这涉及到矩阵的逆的计算，我们做一个讨论：</p>
-<p>​	情况1.如果是X<sup>T</sup>X是一个满秩矩阵或者正定矩阵。则上式为0得到结果为：</p>
-<p><img src="/./../pic/image-20231218200815605.png" alt="image-20231218200815605"></p>
-<p>​	此时，我们的多元线性回归模型为：</p>
-<p><img src="/./../pic/image-20231218201103236.png" alt="image-20231218201103236"></p>
-<p>​	上面有小帽说明是增广向量，最后有一个1。</p>
-<p>​	情况2.那如果不是呢？事实上多数情况下也确实不是。那么此时出现的一个问题就是，未知数少，等式多，我们可以计算多个结果出来，都可以做到。也就是有多个w满足令局方误差最小的情况。</p>
-<p>​	既然这样，那就开卷，加题！——引入正则项，由学习算法的归纳偏好决定选择哪一个解作为输出。</p>
-<p><img src="/./../pic/image-20240117195841144.png" alt="image-20240117195841144"></p>
-<h5 id="关于这个目标函数的损失函数"><a href="#关于这个目标函数的损失函数" class="headerlink" title="关于这个目标函数的损失函数"></a>关于这个目标函数的损失函数</h5><p>​	对于回归问题，最常用的是L2损失，为预测残差的平方。也就是我们上图的左半部分。</p>
-<p>​	补充一下，最小L2损失函数等价于高斯白噪声下的极大似然。</p>
-<p>​	HUber损失，也叫胡伯损失函数，用来弥补L2损失对于噪声点的敏感性和L1在r&#x3D;0处不可导的问题。性能比较好。</p>
-<p><img src="/./../pic/image-20240117200140574.png" alt="image-20240117200140574"></p>
-<h5 id="关于这个目标函数的正则项"><a href="#关于这个目标函数的正则项" class="headerlink" title="关于这个目标函数的正则项"></a>关于这个目标函数的正则项</h5><p>​	如果目标函数只考虑模型对于训练样本的拟合，容易产生过拟合。为了抑制过拟合，在目标函数中加入了正则项。</p>
-<p>​	正则项通常与模型的复杂度有关。</p>
-<p><img src="/./../pic/image-20240117200445646.png" alt="image-20240117200445646"></p>
-<p>​	补充，这里的惩罚和截距项没有关系，因为截距项不会影响模型的复杂度。这里主要是针对增广向量，计算正则的时候需要注意一下。</p>
-<p>​	没有正则的情况下，也就是最开始的计算过程，也叫做最小二乘法计算。</p>
-<p>​	对于L2正则的线性回归，又称作岭回归。可通过SVD求解</p>
-<p>​	对于L1正则的线性回归，称作是Lasso回归。没有解析解，只能迭代求解。</p>
-<p>​	</p>
-<p>​	线性模型本身简单，但是也存在着丰富的变化，比如说，数据本身对应标签的关系是指数尺度上的，那么输出结果的对数作为线性逼近的目标自然更加合理。</p>
-<p><img src="/./../pic/image-20231218201824451.png" alt="image-20231218201824451"></p>
-<p>​	这个方法，形式上也是线性回归，但是实际上我们逼近和拟合的是输入空间到输出空间的非线性映射。</p>
-<h2 id="对数线性回归（逻辑斯特回归）"><a href="#对数线性回归（逻辑斯特回归）" class="headerlink" title="对数线性回归（逻辑斯特回归）"></a>对数线性回归（逻辑斯特回归）</h2><p>​	上一节提到的是进行回归学习，而实际上我们还可以进行分类任务，只要我们可以将分类任务的真实标记和线性回归模型的预测值联系起来就可以。</p>
-<p>​	考虑对于二分类任务，我们要做的就是把实数域的数据映射到0,1上，最简单的单位阶跃函数，但是问题是不连续，好一点的就是对数几率函数，也是最常用的：</p>
-<p><img src="/./../pic/image-20231218202900802.png" alt="image-20231218202900802"></p>
-<p>​	代入我们前面提到的线性回归模型，这个时候的对数几率函数就是：</p>
-<p><img src="/./../pic/image-20231218202945729.png" alt="image-20231218202945729"></p>
-<p>​	稍微调整一下上式，可以变化为：</p>
-<p><img src="/./../pic/image-20231218203409510.png" alt="image-20231218203409510"></p>
-<p>​	此时，我们可以将y视作样本x为正例的可能性，则1-y是作为反例的可能性，两者的壁纸称作几率，这样，上式的左半部分我们也可以称作是“对数几率”</p>
-<p>​	这样来看，这个公式的目的就是用线性回归模型来预测结果逼近真实标记的对数几率。名为回归实则分类。并且相比于传统分类，还多一个概率。</p>
-<p>​	这个东西这么好，又该怎么计算呢？按照我们前面提到的概率的说法，重写上式：</p>
-<p><img src="/./../pic/image-20231218203927511.png" alt="image-20231218203927511"></p>
-<p>​	基于此，我们可以再稍微重写一下，因为正反例之和为1，所以：</p>
-<p><img src="/./../pic/image-20231218204003668.png" alt="image-20231218204003668"></p>
-<p>​	那我们的核心思想就很明确了，我们希望每一个样本都是，属于真实标记的那个概率越大越好：</p>
-<p><img src="/./../pic/image-20240118105222277.png" alt="image-20240118105222277"></p>
-<p>​	逻辑斯蒂回归中加入正则项的必要性：<img src="/./../pic/image-20240118105459307.png" alt="image-20240118105459307"></p>
-<p>​	基于这点，我们又补充了超参数C。</p>
-<p><img src="/./../pic/image-20240118105622276.png" alt="image-20240118105622276"></p>
-<h5 id="对数几率回归的优化求解"><a href="#对数几率回归的优化求解" class="headerlink" title="对数几率回归的优化求解"></a>对数几率回归的优化求解</h5><p>​	这里比较传统的计算法子就是梯度下降法。</p>
-<p>​	这里需要提一下，下图中的计算似然函数还加了一个正则项，这个属于是没他也行，有他更好。</p>
-<p><img src="/./../pic/image-20231218205127336.png" alt="image-20231218205127336"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/31/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/" data-id="cls1i3wiw0000msue2nmt7s65" data-title="线性模型" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-神经网络" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="article-date">
-  <time class="dt-published" datetime="2024-01-31T07:14:51.000Z" itemprop="datePublished">2024-01-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><h2 id="神经元模型"><a href="#神经元模型" class="headerlink" title="神经元模型"></a>神经元模型</h2><p>​	神经元细胞通过突触链接，突触通过电化学过程传递信息。在电信号的点位超过一个阈值之后，链接的神经元被激活。基于此，提出M-P神经元模型，是对于上述生物情况的简化。</p>
-<p><img src="/./../pic/image-20240109130926554.png" alt="image-20240109130926554"></p>
-<p>​	激活函数的种类很丰富，用处就是将输入的数值以一种<strong>非线性</strong>的方式映射为输出0或者1。阶跃函数存在不连续不光滑的问题，常用的激活函数为sigmoid函数。后来逐渐被更简单的Relu函数替代，对于不同类型的问题，要选择不同的激活函数。</p>
-<h2 id="感知机与多层网络"><a href="#感知机与多层网络" class="headerlink" title="感知机与多层网络"></a>感知机与多层网络</h2><p>​	感知机由两层神经元组成，输出层位上面提到的M-P神经元。可以实现逻辑运算（与，或，非），这里使用的是sigmoid函数做激活，只要输入层计算不小于0.5，输出结果为1.</p>
-<p>​	感知机的学习过程：</p>
-<p><img src="/./../pic/image-20240109132542835.png" alt="image-20240109132542835"></p>
-<p>​	感知机只有输出层可以做激活函数处理，学习能力相当有限。因为一层的神经网络换个说法就是线性操作，属于是线性可分问题的，即便是异或操作做起来都费劲。这种情况下 ，我们就需要考虑多层功能神经元。</p>
-<p>​	两层神经网络，可以实现异或逻辑操作。</p>
-<p><img src="/./../pic/image-20240109132811845.png" alt="image-20240109132811845"></p>
-<p>​	继续延伸，那就是多层前馈神经网络。也叫做全连接前馈神经网络。</p>
-<p><img src="/./../pic/image-20240109132934843.png" alt="image-20240109132934843"></p>
-<p>​	这个操作的过程可以视作为矩阵操作（每一层之间分开算）：</p>
-<p><img src="/./../pic/image-20240109133425810.png" alt="image-20240109133425810"></p>
-<p>​	进一步推导可得：</p>
-<p><img src="/./../pic/image-20240109133449517.png" alt="image-20240109133449517"></p>
-<h2 id="反向传播算法（快速梯度计算）"><a href="#反向传播算法（快速梯度计算）" class="headerlink" title="反向传播算法（快速梯度计算）"></a>反向传播算法（快速梯度计算）</h2><p>​	在之前的说明中，我们提到了对应的神经网络的框架，基于此，接下来需要的就是计算框架对应的参数进而得到一个完整的模型。</p>
-<p>​	对于一个神经网络模型，他的目标函数如下：</p>
-<p><img src="/./../pic/image-20240109134838145.png" alt="image-20240109134838145"></p>
-<p>​	对于这个问题，一个比较直接简单的思路就是前面我们在M-P模型部分提到的梯度下降，但是问题在于，神经网络模型的参数规模很大，but梯度下降的算法在面对大规模问题的时候很难顶。</p>
-<p><img src="/./../pic/image-20240109141128012.png" alt="image-20240109141128012"></p>
-<p>​	以上图为例，我们可以看到，这样一个两层的神经网络，我们需要计算的参数数量为：dq+lq+l+q个。</p>
-<p>​	所以，引入反向传播算法，可以更有效的计算梯度。</p>
-<p><img src="/./../pic/image-20240109142009167.png" alt="image-20240109142009167"></p>
-<p>​	反向传播也是基于梯度下降的策略，以目标的负梯度方向进行调整，给定学习率的情况下，有：</p>
-<p><img src="/./../pic/image-20240109142102164.png" alt="image-20240109142102164"></p>
-<p>​	(这里的w<sub>hj</sub>是隐层到输出层的一个参数)</p>
-<p><img src="/./../pic/image-20240109142629553.png" alt="image-20240109142629553"></p>
-<p>​	所以我们可以知道w<sub>hj</sub>是通过影响隐层输入影响输出结果进而影响误差的，所以可以链式法则：</p>
-<p><img src="/./../pic/image-20240109142845505.png" alt="image-20240109142845505"></p>
-<p>​	这里β<sub>j</sub>就是隐层输入加权后的输入到输出层的数据，所以根据他的定义，显然</p>
-<p><img src="/./../pic/image-20240109143114881.png" alt="image-20240109143114881"></p>
-<p>​	另外，基于sigmoid函数的一个性质，我们可以得出： </p>
-<p><img src="/./../pic/image-20240109143956883.png" alt="image-20240109143956883"></p>
-<p>​	基于此，有：</p>
-<p><img src="/./../pic/image-20240109144033788.png" alt="image-20240109144033788"></p>
-<p><img src="/./../pic/image-20240109144040172.png" alt="image-20240109144040172"></p>
-<p>​	<img src="/./../pic/image-20240109144050316.png" alt="image-20240109144050316"></p>
-<p><img src="/./../pic/image-20240109144101238.png" alt="image-20240109144101238"></p>
-<p>（似懂？如懂？这哪里反向传播了呢？）</p>
-<h2 id="反向传播2-0说明"><a href="#反向传播2-0说明" class="headerlink" title="反向传播2.0说明"></a>反向传播2.0说明</h2><p>​	首先规定符号表示：</p>
-<p><img src="/./../pic/image-20240109144302849.png" alt="image-20240109144302849"></p>
-<p>​	这就是反向传播：</p>
-<p><img src="/./../pic/image-20240109144327721.png" alt="image-20240109144327721"></p>
-<p>​	这里才是比较重要的点，怎么反向的：</p>
-<p><img src="/./../pic/image-20240109145046549.png" alt="image-20240109145046549"></p>
-<p>​	取出来其中的相邻两层，我们发现，δ这个参数可以通过更高一层的δ表示，这也就意味着我们可以从最高层一步步向下计算这个参数。（反向这不就来了）</p>
-<p><img src="/./../pic/image-20240109150000681.png" alt="image-20240109150000681"></p>
-<p>​	<img src="/./../pic/image-20240109151721198.png" alt="image-20240109151721198"></p>
-<p>​	反向传递的过程：</p>
-<p><img src="/./../pic/image-20240109151758548.png" alt="image-20240109151758548"></p>
-<p>​	总结：计算的话还是用西瓜书上给的公式比较好，不过原理的话这里写的更明白一些。反向传播需要小心梯度爆炸和梯度消失，这需要我们在训练的过程中关注学习率的选取，因为这个方法对于学习率的变化很敏感，可能需要再训练过程中大幅修改LR。</p>
-<p><img src="/./../pic/image-20240109151938441.png" alt="image-20240109151938441"></p>
-<h4 id="为什么要用深度学习模型？"><a href="#为什么要用深度学习模型？" class="headerlink" title="为什么要用深度学习模型？"></a>为什么要用深度学习模型？</h4><p>​	一个朴素的道理，参数越多，效果越好</p>
-<h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><p>​	对于图像的常用方法，因为通过CNN，我们可以不看完整个图像就发现格式，并且check一个图像的子图像的工作所需参数更少。</p>
-<p>​	卷积神经网络的基本结构：卷积层，激活层，池化层</p>
-<p>​	<img src="/./../pic/image-20240109154455761.png" alt="image-20240109154455761"></p>
-<p>​	这里我们的卷积核选择可以选择多个。不同的卷积核可以用来针对图像的不同特征，比如sobel算子，拉普拉斯算子。</p>
-<p>​	对于彩色图像，每一个彩色通道都应该有一个对应的卷积核。</p>
-<p>​	池化层：对于卷积的结果进行类似下采样的操作。目的是尽快降低参数规模。每次池化后图像尺寸减半。</p>
-<p>​	池化层需要注意的反向梯度操作：</p>
-<p><img src="/./../pic/image-20240109155812227.png" alt="image-20240109155812227"></p>
-<h3 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h3><p>​	针对序列建模，我们希望模型可以记忆上下文的信息。</p>
-<p>​	核心就是把过去的相关信息记录一下，共同作为输入。</p>
-<p><img src="/./../pic/image-20240109160041833.png" alt="image-20240109160041833"></p>
-<h1 id="考点"><a href="#考点" class="headerlink" title="考点"></a>考点</h1><p>​	就考一个freestyle，特定场景自己设计一个网络出来，言之有理即可。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" data-id="cls1gdcjf0000s8uehmd2evbg" data-title="神经网络" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-判别式分类器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/01/31/%E5%88%A4%E5%88%AB%E5%BC%8F%E5%88%86%E7%B1%BB%E5%99%A8/" class="article-date">
-  <time class="dt-published" datetime="2024-01-31T07:12:29.000Z" itemprop="datePublished">2024-01-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/01/31/%E5%88%A4%E5%88%AB%E5%BC%8F%E5%88%86%E7%B1%BB%E5%99%A8/">判别式分类器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="判别式分类器"><a href="#判别式分类器" class="headerlink" title="判别式分类器"></a>判别式分类器</h1><h2 id="线性判别分析"><a href="#线性判别分析" class="headerlink" title="线性判别分析"></a>线性判别分析</h2><p>​	简称LDA，是一种经典的线性学习方法，也叫fisher判别分析。</p>
-<p>​	LDA的思想很朴素，给定训练样例集合，把这些样例投影到一条直线上，使得同类样例的投影点尽可能接近，异类样例的投影点尽可能远离。我们希望的表现效果如下图所示：</p>
-<p><img src="/./../pic/image-20231215105540852.png" alt="image-20231215105540852"></p>
-<p>​	给定数据集，我们需要计算每一类数据的均值向量和协方差矩阵，然后将数据投影到直线w上。则：</p>
-<p>​	<img src="/./../pic/image-20231215105829578.png" alt="image-20231215105829578"></p>
-<p>​	并且，这里的4个数据都是实数。基于我们前面提到的希望同类样例的投影点尽可能接近，异类样例的投影点尽可能远离的目标，给出目标函数：</p>
-<p>​	其中分子部分对应类中心距离，分母部分对应同类别投影点临近程度。</p>
-<p><img src="/./../pic/image-20231215110105211.png" alt="image-20231215110105211"></p>
-<p>​	补充定义，重写上式：</p>
-<p><img src="/./../pic/image-20231215110257937.png" alt="image-20231215110257937"></p>
-<p>​	上式为LDA的目标函数，也称之为S<sub>b</sub>和S<sub>w</sub>的广义瑞利商。显然这里定义中的S<sub>b</sub>和S<sub>w</sub>都是基于给定数据集已知的。此时我们的目标就是计算W.</p>
-<p>​	显然，上式的分子分母都是关于w的二次项，因此这个式子的解只会和W的方向有关，与w的长度无关，因此，我们可以再次重构上式：</p>
-<p>​	因为S<sub>b</sub>和S<sub>w</sub>是确定的数据，w是方向确定下，长度可以伸缩的，这意味着我们一定可以做到令分子为1。</p>
-<p><img src="/./../pic/image-20231215111935354.png" alt="image-20231215111935354"></p>
-<p>​	对于有约束条件的求最值，比较常用的就是拉格朗日乘子法，上式等于：</p>
-<p><img src="/./../pic/image-20231215112542616.png" alt="image-20231215112542616"></p>
-<p>​	其中λ是拉格朗日乘子，此时我们可以发现S<sub>b</sub>w的方向是恒为μ<sub>0</sub>-μ<sub>1</sub>，此时不妨令：</p>
-<p><img src="/./../pic/image-20231215113932906.png" alt="image-20231215113932906"></p>
-<p>​	代入拉格朗日乘子法，则可得：</p>
-<p><img src="/./../pic/image-20231215114001371.png" alt="image-20231215114001371"></p>
-<p>​	实际计算的时候需要注意：</p>
-<p><img src="/./../pic/image-20231215114731362.png" alt="image-20231215114731362"></p>
-<p><img src="/./../pic/image-20231215130626604.png" alt="image-20231215130626604"></p>
-<h3 id="补充：奇异值分解"><a href="#补充：奇异值分解" class="headerlink" title="补充：奇异值分解"></a>补充：奇异值分解</h3><p>​	是矩阵特征值分解的一种延伸，矩阵可以不是方阵。</p>
-<p>​	具体逻辑跳过，计算步骤为：</p>
-<p>​	1.计算矩阵A<sup>T</sup>A，对结果进行特征值分解，所有特征向量组成的矩阵（n*n)就是对应的矩阵V</p>
-<p>​	2.计算矩阵AA<sup>T</sup>，对结果进行特征值分解，所有特征向量组成的矩阵（n*n)就是对应的矩阵U</p>
-<p>​	3.Σ是一个对角阵，所以直接根据已经算出来的UV计算每一个奇异值就可以了。</p>
-<p><img src="/./../pic/v2-eab35f0f8896ebe2dbf64d3c0b2bb1da_r.jpg" alt="img"></p>
-<p>​	举个栗子：</p>
-<p><img src="/./../pic/v2-1eded2adc70ac4eab0afe6ec52d31892_1440w.png" alt="img"></p>
-<p><img src="/./../pic/v2-8f78e1cf021f78a16bf559243fa16a87_1440w.webp" alt="img"></p>
-<p><img src="/./../pic/v2-e36d0129dcd8f95d7f053c85b81387bb_1440w.webp" alt="img"></p>
-<p><img src="/./../pic/v2-cacc77aeccd8e54811601e467ce8c786_1440w.png" alt="img"></p>
-<p><img src="/./../pic/v2-6f6d014782dd412075f653658bd63bf0_1440w.webp" alt="img"></p>
-<p><img src="/./../pic/v2-7517b4e0cdd9a1adcf4cdb42bf27162c_1440w.webp" alt="img"></p>
-<h3 id="LDA的扩充"><a href="#LDA的扩充" class="headerlink" title="LDA的扩充"></a>LDA的扩充</h3><p>​	我们前面提到的部分都是二分类任务，但是显然线性判别分类只分两类没道理的。</p>
-<p>​	在多分类的任务重，假定存在N个类吧，此时，我们需要在S<sub>b</sub>和S<sub>w</sub>的基础上，补充一个定义“全局散度矩阵”S<sub>t</sub>：</p>
-<p><img src="/./../pic/image-20231215150743829.png" alt="image-20231215150743829"></p>
-<p>​	在我们前面的定义中S<sub>b</sub>的定义是类间散度矩阵，S<sub>w</sub>是类内散度矩阵，在只有两分类的情况下，直接基于均值和协方差计算即可。</p>
-<p>​	但是多分类的情况下，这两者的定义扩充，此时可以记作：</p>
-<p><img src="/./../pic/image-20231215150959421.png" alt="image-20231215150959421"></p>
-<p>​	其中S<sub>wi</sub>对应第wi类型的协方差矩阵。</p>
-<p>​	关于类简单度矩阵基于前面全局散度的计算前提（此处推导不难，就是很麻烦），m<sub>i</sub>表示这个类别的样本数：</p>
-<p><img src="/./../pic/image-20231215151008486.png" alt="image-20231215151008486"></p>
-<p>​	然后，我们对于多分类LDA，其实使用我们计算出来的三个参数中的两个就可以计算出来了，常用的是：</p>
-<p><img src="/./../pic/image-20231215151402988.png" alt="image-20231215151402988"></p>
-<p>​	然后计算方式和我们之前二分类那里类似：</p>
-<p><img src="/./../pic/image-20231215151436645.png" alt="image-20231215151436645"></p>
-<p>​	顺便一提，这也是一个很经典的监督降维技术。</p>
-<h2 id="感知器算法"><a href="#感知器算法" class="headerlink" title="感知器算法"></a>感知器算法</h2><p>​	神经网络和支持向量机的基础。是一种二分类的线性分类模型，输入特征向量，输出实例类别。</p>
-<p><img src="/./../pic/image-20231216100919068.png" alt="image-20231216100919068"></p>
-<p>​	判别规则：</p>
-<p><img src="/./../pic/image-20231216101457609.png" alt="image-20231216101457609"></p>
-<p>​	我们可以发现，样本分类*预测结果&gt;0则说明分类正确，反之错误，我们基于此得出目标函数：</p>
-<p><img src="/./../pic/image-20231216101550245.png" alt="image-20231216101550245"></p>
-<p>​	其中M为错误样本的集合，我们希望错误样本尽可能少。这里的话也可以改成增广向量的形式，不过意思都一样。</p>
-<p>​	对于这个目标函数，一般使用梯度下降法进行计算。</p>
-<h3 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h3><p>​	对于函数J(w)，其极值点只能在边界点，不可导点或者导数为0的点，其中导数为0的点成为临界点。</p>
-<p>​	对于多元函数，则是梯度为0。</p>
-<p>​	我们可以通过梯度最快下降的方式，找到对应的梯度为0的点。具体方法为：</p>
-<p><img src="/./../pic/image-20231216102356788.png" alt="image-20231216102356788"></p>
-<p>​	关于收敛性的证明：</p>
-<p><img src="/./../pic/image-20231216103516462.png" alt="image-20231216103516462"></p>
-<p>​	回到感知器算法，在前面计算的过程中，我们提到了计算目标函数的梯度，其梯度的计算结果为：</p>
-<p><img src="/./../pic/image-20231216103609345.png" alt="image-20231216103609345"></p>
-<p>​	将这个公式代入到我们前面提到的梯度下降流程中，则计算感知器算法权重w的流程为：</p>
-<p><img src="/./../pic/image-20231216103736653.png" alt="image-20231216103736653"></p>
-<p>​	再举个栗子：</p>
-<p><img src="/./../pic/image-20231216105753349.png" alt="image-20231216105753349"></p>
-<p><img src="/./../pic/image-20231216105759997.png" alt="image-20231216105759997"></p>
-<p><img src="/./../pic/image-20231216105846414.png" alt="image-20231216105846414"></p>
-<p><img src="/./../pic/image-20231216105856852.png" alt="image-20231216105856852"></p>
-<p><img src="/./../pic/image-20231216105907878.png" alt="image-20231216105907878"></p>
-<h2 id="最小平方误差分类器"><a href="#最小平方误差分类器" class="headerlink" title="最小平方误差分类器"></a>最小平方误差分类器</h2><p>​	在我们前面提到的感知器算法，他可以找到一个判别界面将样本按照类别进行区分，但是显然，这个功能的前提是可分。</p>
-<p>​	如果不可分呢？想想我们上面的例子，如果交换一下24的类别，这个梯度下降法一辈子都不会收敛，白费功夫罢了。</p>
-<p>​	所以，我们又引入了LMSE算法，对于可分收敛，同时可以指示出来不可分的情况。</p>
-<p>​	基于二分类的情况，对问题进行分析：</p>
-<p><img src="/./../pic/image-20231216113102005.png" alt="image-20231216113102005"></p>
-<p>​	我们的目标就是找到一个w，可以满足我们最后提出的不等式，但是显然我们计算的结果，应该是一个列数组，我们需要每一个元素都&gt;0，所以也可以记作：</p>
-<p><img src="/./../pic/image-20231216114051672.png" alt="image-20231216114051672"></p>
-<p>​	对于这个准则函数，我们需要求解的部分是w,b，要求是这个准则函数尽可能小且b的元素都要&gt;0.</p>
-<p><img src="/./../pic/image-20231216114533549.png" alt="image-20231216114533549"></p>
-<p>​	这里b是用的迭代法求解：</p>
-<p><img src="/./../pic/image-20231216115438108.png" alt="image-20231216115438108"></p>
-<p><img src="/./../pic/image-20231216115447178.png" alt="image-20231216115447178"></p>
-<p><img src="/./../pic/image-20231216115458838.png" alt="image-20231216115458838"></p>
-<p><img src="/./../pic/image-20231216115514414.png" alt="image-20231216115514414"></p>
-<p>​	在迭代和计算的过程中，若模式可分，e<sup>(t)</sup>会逐渐变小（学习率在0-1之间），并逐渐接近0.</p>
-<p>​	基于前面迭代计算，评估模式的可分性：</p>
-<p><img src="/./../pic/image-20231216115706092.png" alt="image-20231216115706092"></p>
-<h2 id="分段线性判别函数"><a href="#分段线性判别函数" class="headerlink" title="分段线性判别函数"></a>分段线性判别函数</h2><p>​	主要在于依稀线性不可分的情况，使用核函数之类的升维方式的话，又过于复杂，就可以使用分段线性判别，用判别平面组合的方式提升判别平面的细节进而实现可分。</p>
-<h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><p>​	也是一类常见的机器学习方法，基于树结构进行决策，通过对属性进行判断最后给出结果，如下图：</p>
-<p><img src="/./../pic/image-20231216131508639.png" alt="image-20231216131508639"></p>
-<h3 id="属性划分"><a href="#属性划分" class="headerlink" title="属性划分"></a>属性划分</h3><p>​	基于我们对于决策树朴素的理解，我们可以意识到，对于决策树来说，每一个节点进行判断的选择是很重要的，我们肯定不希望做出判断之后发现数据根本没有分开。最理想的情况就是判断之后，一半类别1，一半类别2，直接大功告成。</p>
-<p>​	所以，选择最优划分属性是很重要的。我们希望决策树的分支节点所包含的样本尽可能属于同一个类别，也就是纯度越来越高。</p>
-<p>​	1.信息增益</p>
-<p>​	基于我们的目的，我们首先引入信息熵的概念，这是一个度量样本集合纯度的最常用指标。</p>
-<p><img src="/./../pic/image-20231216131811411.png" alt="image-20231216131811411"></p>
-<p>​	这个Ent(D)越小纯度对应越高。假设现在有一个离散的属性a有V个不同的选择，那么选择这个属性来划分的话，会产生V个分支节点。对于这V个分支节点，以样本数做权重，加权计算信息熵的和。</p>
-<p><img src="/./../pic/image-20231216132743616.png" alt="image-20231216132743616"></p>
-<p>​	这里的信息增益越大，说明划分提纯效果越好。</p>
-<p>​	2.增益率</p>
-<p>​	我们前面提到的信息增益是一个有效的判断属性划分的方法，但是我们也同样知道，就是对于一组数据来说，如果我们豁得出去，直接按照主键来进行划分的话，最后的结果就是一个样本对应一个叶子节点，这个信息增益直接无敌了。但是这好吗？这显然是没有任何道理的，我按照编号学号划分，毫无意义，面对新的数据一碰就碎。</p>
-<p>​	所以，我们还需要对信息增益进行补充，不能抛开剂量谈毒性，我们进一步引入增益率的概念：</p>
-<p><img src="/./../pic/image-20231216134350787.png" alt="image-20231216134350787"></p>
-<p>​	IV(a)称之为是属性A的固有值，一般来讲，这个属性可以选择的数目越多，这个数值就会越大。</p>
-<p>​	3.基尼指数</p>
-<p>​	独立于我们前面提到的信息增益和增益率的概念的另一个评估数据集纯度的指标，优点就是不用log计算，会快一些。</p>
-<p><img src="/./../pic/image-20231216134753414.png" alt="image-20231216134753414"></p>
-<p>​	换个说法，基尼指数就是从数据集里面随便取出来两个样本，标记不一致的概率，这个概率小就说明纯度高。对于用来划分的属性，基尼指数的定义为：</p>
-<p>​	<img src="/./../pic/image-20231216134843406.png" alt="image-20231216134843406"></p>
-<p>​	这个地方基尼指数是越小越好。</p>
-<h3 id="剪枝处理"><a href="#剪枝处理" class="headerlink" title="剪枝处理"></a>剪枝处理</h3><p>​	为什么要剪枝，什么是剪枝？</p>
-<p>​	剪枝是一种应对与过拟合的手段，我们理论上可以搞一个无限多个属性划分的树，这个树巨大无比，我训练集上每一个数据都是对的。但是代价就是，叶子结点多且杂，九成九过拟合了。</p>
-<p>​	对于决策树模型，相同效果，树结构越简单越好，剪枝就是干这个的。</p>
-<p>​	剪枝又可以分作预剪枝和后剪枝，前者就是划分之前估计一下能不能提升泛化性能，不能就算了。后者就是我树都搭建好了，从下往上看看能不能砍两刀下来提升泛化能力。</p>
-<p>​	这两个方法都提到了泛化能力，这个东西概念简单，但是我们怎么判断呢？比较可靠的一个法子就是，留一部分数据出来做验证集进行评估。</p>
-<p>​	整体预剪枝的流程如下：</p>
-<p>​	1.一开始，训练数据集都在一起，此时我们只有一个根节点，这个节点的判断结果取集合中多数数据的标签。有一个精度</p>
-<p>​	2.选择一个属性，划分出来若干个子节点，此时基于属性和节点内容，给出判断结果，如果精度提升，就执行反正打住。</p>
-<p>​	3.知道所有节点都不可以在划分，结束此操作。</p>
-<p>​	后剪枝操作类似，就是从下往上来，也是以提高验证集精度为第一目的。后剪枝的决策树往往结构更复杂一些，也有更好的泛化性能，但是问题是时间开销，需要先把树搭建出来。然后再进行剪枝操作，预剪枝剪完树也建好了，两者各有优劣。</p>
-<h3 id="连续值处理"><a href="#连续值处理" class="headerlink" title="连续值处理"></a>连续值处理</h3><p>​	离散的数据，我们前面这一套下来，也就差不多了。但是连续的往往就麻烦一些。</p>
-<p>​	最明显的，我们不能直接根据取值划分节点了。此时，可以选择的最简单的方案就是二分法，随便找个阈值来一刀，按相比阈值大小划分，这个阈值一般来讲就是取已有训练数据的中间值，1,3,5,7,9就分别去拿2,4,6,8作为阈值试一下，找效果最好的。</p>
-<p>​	评估效果的话，上面三个都行。</p>
-<h3 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h3><p>​	样本的某些属性值缺失，但是这个样本其他数据又不能浪费。所以还是得用。</p>
-<p>​	那用也有两个问题，一个是我这个属性没有数据，按这个属性划分的时候我算什么？另一个是，我这个属性没有，那你选属性来划分的时候，算不算我？</p>
-<p>​	首先选择属性进行划分，我们可以只使用没有缺失值的样本子集，但是在具体操作上会有一些不同。</p>
-<p>​	具体的区别的点在于一些之前的定义参数：</p>
-<p><img src="/./../pic/image-20231216144238905.png" alt="image-20231216144238905"></p>
-<p>​	基于这些参数补充，推广之前的评估指标：</p>
-<p><img src="/./../pic/image-20231216144204947.png" alt="image-20231216144204947"></p>
-<p><img src="/./../pic/image-20231216144320375.png" alt="image-20231216144320375"></p>
-<p>​	基于以上操作，就可以完成评估。找到了划分的属性之后，就是对于该属性没有数据的样本怎么进行划分的问题了。</p>
-<p>​	这里的操作比较魔幻，但是确实是有道理的，我们不知道的数据，直接分到所有子节点上，因为你不是，所以你什么都可以是。并且我们对于这个样本的权值，要根据那些有属性数据的样本数目调整。（成了一个概率问题）</p>
-<p>​	</p>
-<h1 id="考点"><a href="#考点" class="headerlink" title="考点"></a>考点</h1><p>​	梯度下降法</p>
-<p>​	（决策树不考）	</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/31/%E5%88%A4%E5%88%AB%E5%BC%8F%E5%88%86%E7%B1%BB%E5%99%A8/" data-id="cls1gaxjh0000wwue4a9bb2so" data-title="判别式分类器" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-降维与度量学习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/01/31/%E9%99%8D%E7%BB%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/" class="article-date">
-  <time class="dt-published" datetime="2024-01-31T07:09:22.000Z" itemprop="datePublished">2024-01-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/01/31/%E9%99%8D%E7%BB%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/">降维与度量学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="降维与度量学习"><a href="#降维与度量学习" class="headerlink" title="降维与度量学习"></a>降维与度量学习</h1><h2 id="k近邻学习"><a href="#k近邻学习" class="headerlink" title="k近邻学习"></a>k近邻学习</h2><p>​	也就是KNN，是一种常用的监督学习方法。工作机制为：给定测试样本，找最近的k个训练样本，基于这k个邻居的信息来进行预测。</p>
-<p>​	面对分类：投票法</p>
-<p>​	面对回归：平均法</p>
-<p><img src="/./../pic/image-20231206153222212.png" alt="image-20231206153222212"></p>
-<p>​	KNN的关键参数：k，根据上图，我们会发现，k的选择会直接影响到测试样本的输出结果。</p>
-<p>​	假设，此时我们面对一个分类问题设置k&#x3D;1，也就是说，我们直接选择使用和测试样本最近的训练样本标签作为输出结果。此时我们会发现：</p>
-<p><img src="/./../pic/image-20231206153636052.png" alt="image-20231206153636052"></p>
-<p>​	这个简单的分类器，泛化错误率不超过贝叶斯最优分类器错误率的两倍、</p>
-<h2 id="低维嵌入"><a href="#低维嵌入" class="headerlink" title="低维嵌入"></a>低维嵌入</h2><p>​	上一节讨论的前提：任意测试样本附近一定距离，能找到测试样本</p>
-<p>​	but！</p>
-<p>​	既然这个事情是前提，就说明现实的任务中这个部分的内容往往很难实现。</p>
-<p>​	why？</p>
-<p>​	这个前提的另一种说法就是要求数据的密度满足一定条件，可以通过归一化划定对应范围。但是随着维度的增加，数据必然被稀释，此时如果还要满足相同的密度要求，需要的数据量呈现指数级上升。——维度灾难</p>
-<p>​	所以说，高维不行！我们要降维。下图为一个直观的例子：</p>
-<p>​	<img src="/./../pic/image-20231206161224025.png" alt="image-20231206161224025"></p>
-<p>​	要求：原始空间中的样本之间的距离在低维空间中得以保持</p>
-<p>​	经典的降维方法：MDS</p>
-<h3 id="MDS"><a href="#MDS" class="headerlink" title="MDS"></a>MDS</h3><p>​	这是一种基于距离度量的数据降维方法，在从高维转换为低维的数据的过程中，样本的相对位置关系不变。</p>
-<p>​	优化函数：</p>
-<p>​	<img src="/./../pic/image-20231206181954812.png" alt="image-20231206181954812"></p>
-<p>​	</p>
-<p>​	高维样本之间的距离，计算方法很多，最简单的就是欧氏距离，或者别的也可以，只要满足上述三个要求就行。</p>
-<p>​	更像是一种数据可视化的方法。</p>
-<p>​	由优化函数可知，这个算法是没有唯一解的。并且直接计算Z比较困难。所以我们转换思路，计算B矩阵，这里的B&#x3D;Z<sup>T</sup>Z，这样B也是一个样本数量尺寸的方阵。只要得到B，我们可以通过特征值分解计算得到Z</p>
-<p><img src="/./../pic/image-20231206183357731.png" alt="image-20231206183357731"></p>
-<p>​	基于一开始的优化函数和B的定义，可以得到四个等式，其中b<sub>ii</sub>，b<sub>jj</sub>，b<sub>ij</sub>，以及B的迹是未知数，四个等式，四个未知数，可解得结果：</p>
-<p>​	 <img src="/./../pic/image-20231206183516413.png" alt="image-20231206183516413"></p>
-<p>​	这里的B是一个m*m维度的向量，m为样本个数。</p>
-<p>​	得到B之后，需要对其进行特征值分解，进行计算对应的降维后的坐标。</p>
-<p>​	或者，也可以加一步，进行一下数据的中心化，这一步不影响映射后样本的相对位置。但是或许可以有助于数据低维下的可视化表示。</p>
-<p><img src="/./../pic/image-20231207165328239.png" alt="image-20231207165328239"></p>
-<p><img src="/./../pic/image-20231207165347367.png" alt="image-20231207165347367"></p>
-<p>​	<img src="/./../pic/image-20231207165407700.png" alt="image-20231207165407700"></p>
-<h2 id="主成分分析（PCA）"><a href="#主成分分析（PCA）" class="headerlink" title="主成分分析（PCA）"></a>主成分分析（PCA）</h2><p>​	最常用的一种降维方法。类似投影的理解方式。通过将数据映射到一个超平面上进行降维。</p>
-<p>​	如果有这样的超平面，他应该有以下性质：</p>
-<p>​	1.最近重构性</p>
-<p>​	2.最大可分性</p>
-<p>​	概括，希望投影过去的数据投影距离短，彼此分得开。</p>
-<p>​	基于这个目标得到的优化函数为：</p>
-<p><img src="/./../pic/image-20231206185248508.png" alt="image-20231206185248508"></p>
-<p>​	PCA求解方式：</p>
-<p><img src="/./../pic/image-20231206185850539.png" alt="image-20231206185850539"></p>
-<p>​	PCA的朴素理解：去中心化之后，找d’个数据在这个方向上方差最大的方向，把这些方向向量拼一个超平面实现映射。</p>
-<p>​	计算方式：计算给定数据的协方差矩阵的特征值，按从大到小，计算特征向量构成W。W为投影矩阵。选取特征值在全部特征值的占比，就是投影保留数据能量的比例。如下图所示：</p>
-<p>​	<img src="/./../pic/image-20231206191403705.png" alt="image-20231206191403705"></p>
-<p>​	PCA的工作：舍弃掉一些没有价值的维度，降低数据密度顺便一定程度上去噪。</p>
-<h2 id="核化线性降维"><a href="#核化线性降维" class="headerlink" title="核化线性降维"></a>核化线性降维</h2><p>​	为什么要引出核化降维？</p>
-<p><img src="/./../pic/image-20231206191636164.png" alt="image-20231206191636164"></p>
-<p>​	那怎么办呢？</p>
-<p>​	先核化，使用一个非线性的映射，把数据X映射到一个高维甚至是无穷维度的空间，使其线性可分，再PCA降维。</p>
-<h3 id="核化操作"><a href="#核化操作" class="headerlink" title="核化操作"></a>核化操作</h3><p>​	此处对于整体输入数据视作：</p>
-<p><img src="/./../pic/image-20231207153515951.png" alt="image-20231207153515951"></p>
-<p>​	核化操作为：</p>
-<p><img src="/./../pic/image-20231207153551917.png" alt="image-20231207153551917"></p>
-<p><img src="/./../pic/image-20231207153633270.png" alt="image-20231207153633270"></p>
-<p>​	这里的z<sub>i</sub>就是x<sub>i</sub>在高维空间的映射。此时的PCA计算为下式：</p>
-<p><img src="/./../pic/image-20231207161126432.png" alt="image-20231207161126432"></p>
-<p>​	完成映射操作之后，在新的特征空间中，进行PCA降维。</p>
-<p>​	但是，我们知道再PCA的计算过程中，需要去计算协方差矩阵的特征值。但是我们这里映射过的数据空间因为核函数没有显式的一个映射定义，这就导致了协方差矩阵是不能直接求解的。</p>
-<p><img src="/./../pic/image-20231207161302779.png" alt="image-20231207161302779"></p>
-<p>​	关于核函数，我们知道这不是能随便定义的，另外，我们虽然不能直接给出显式的一个映射定义，但是对于映射后的两个元素之间的乘积，我们是需要核函数给出的。</p>
-<p><img src="/./../pic/image-20231207155331821.png" alt="image-20231207155331821"></p>
-<p>​	对于样本x，投影之后第j维度的坐标为：</p>
-<p><img src="/./../pic/image-20231207160950179.png" alt="image-20231207160950179"></p>
-<p><img src="/./../pic/image-20231207161358522.png" alt="image-20231207161358522"></p>
-<p>​	KPCA的流程为：</p>
-<p><img src="/./../pic/image-20231207161734609.png" alt="image-20231207161734609"></p>
-<p>​	此时得到的结果为：</p>
-<p><img src="/./../pic/image-20231207161752913.png" alt="image-20231207161752913"></p>
-<h2 id="流形学习"><a href="#流形学习" class="headerlink" title="流形学习"></a>流形学习</h2><p>​	流形学习（manifold learning），是一类借鉴了拓扑流形概念的降维方法。</p>
-<p>​	低维流形嵌入高维空间，依旧存在部分欧式空间性质。</p>
-<h3 id="等度量映射"><a href="#等度量映射" class="headerlink" title="等度量映射"></a>等度量映射</h3><p>​	原理：低维映射到高维之后，直接计算高维空间的距离存在误导性，因为高维空间中的直线距离，在低维空间中可能是不可达的。</p>
-<p>​	所以，引入一个概念：测地线。虽然在高维空间中存在直线距离，但是我们不能脱离开低维超平面。在低维超平面上的最短距离就是测地线距离。</p>
-<p>​	那么，我们应该如何计算测地线距离呢？</p>
-<p>​	我们可以利用流形在局部与欧式空间同胚的性质，基于欧式距离，找到一个近邻点，然后近邻点之间相互存在链接。通过近连接图逼近测地线。</p>
-<p>​	类似迪杰斯特拉算法，在给定的数据（高维空间）中，计算两点之间的最短路径。</p>
-<p>​	Isomap：迪杰斯特拉算法计算低维空间距离，然后dist(i,j)作为MDS算法的输入。得到对应的低维映射输出。</p>
-<h3 id="局部线性嵌入（LLE）"><a href="#局部线性嵌入（LLE）" class="headerlink" title="局部线性嵌入（LLE）"></a>局部线性嵌入（LLE）</h3><p>​	如果一个点的坐标可以通过领域样本的坐标通过线性组合重构出来。LLE希望这个关系在低维空间中也可以得到保持。</p>
-<p><img src="/./../pic/image-20231207192221104.png" alt="image-20231207192221104"></p>
-<p>​	对于每一个样本，一定可以计算出来重构系数。</p>
-<p><img src="/./../pic/image-20231207192240170.png" alt="image-20231207192240170"></p>
-<p>​	因为保持重构关系，所以重构系数在高维到低维的映射中不变。此时目标函数可以优化为：</p>
-<p><img src="/./../pic/image-20231207192707784.png" alt="image-20231207192707784"></p>
-<p>​	求解：</p>
-<p><img src="/./../pic/image-20231207192752244.png" alt="image-20231207192752244"></p>
-<p>​	这里获得的Z就是样本集合在低维空间的投影。</p>
-<h4 id="T-SNE"><a href="#T-SNE" class="headerlink" title="T-SNE"></a>T-SNE</h4><p>​	基本思想：高维空间相似的数据点，映射到低维空间也相似</p>
-<p>​	SNE：欧氏距离转换为用概率表示的相似性</p>
-<p>​	<img src="/./../pic/image-20231207195631045.png" alt="image-20231207195631045"></p>
-<p>​	<img src="/./../pic/image-20231207195718420.png" alt="image-20231207195718420"></p>
-<p>​	问题：高斯分布中的方差项参数由于数据分布不均，难以确定。</p>
-<p>​	采用参数困惑度进行计算。</p>
-<p><img src="/./../pic/image-20231207195918061.png" alt="image-20231207195918061"></p>
-<p>​	映射过去了，此时如何评判我们的映射做得怎么样？</p>
-<p><img src="/./../pic/image-20231207200035591.png" alt="image-20231207200035591"></p>
-<p>​	如果，按照我们之前的思想，高维相似，低维也相似，那么这个时候q<sub>ij</sub>和p<sub>ij</sub>应该相等。但我们也知道，这个不太现实，所以得到优化函数：</p>
-<p><img src="/./../pic/image-20231207200203599.png" alt="image-20231207200203599"></p>
-<p>​	为什么低维空间使用T分布，因为T分布的尾端（两头）更高，适合表示长尾现象。</p>
-<p><img src="/./../pic/image-20231207201201444.png" alt="image-20231207201201444"></p>
-<p>​	可以采用梯度下降法来求解：</p>
-<p><img src="/./../pic/image-20231207201235757.png" alt="image-20231207201235757"></p>
-<p>​	T-SNE的缺点：</p>
-<p><img src="/./../pic/image-20231207201256895.png" alt="image-20231207201256895"></p>
-<h1 id="考点"><a href="#考点" class="headerlink" title="考点"></a>考点</h1><p>​	需要知道两种非线性降维方法的思路。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/31/%E9%99%8D%E7%BB%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/" data-id="cls1g70hs00007kue73heh7ky" data-title="降维与度量学习" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-集成学习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/" class="article-date">
-  <time class="dt-published" datetime="2024-01-31T07:01:36.000Z" itemprop="datePublished">2024-01-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/">集成学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h1><h2 id="个体与集成"><a href="#个体与集成" class="headerlink" title="个体与集成"></a>个体与集成</h2><p>​	集成学习通过构建并结合多个学习器来完成学习任务，有时也被称为是多分类器系统。</p>
-<p>​	集成学习的一般结构：先产生一组“个体学习器”，再用某种策略将他们结合起来。</p>
-<p>​	个体学习器通常是基于现有的学习算法和训练数据产生。基于个体学习器，可以对于集成学习进行分类：</p>
-<p>​	同质：集成中只包含有相同类型的个体学习器，比如都是各种神经网络或者各种决策树。</p>
-<p>​	异质：就是包含不同类型的个体学习器，比如神经网络和决策树都有。</p>
-<p>​	集成学习，通过将多个学习器进行结合，往往可以获得比单一学习器显著优越的泛化性能，这一点对于弱学习器尤为明显，集成学习的很多理论也都是针对于弱学习器来进行的。——三个臭皮匠了属于是</p>
-<p>​	（弱学习器：有用但不多的学习器，泛化性能略优于随机猜测）</p>
-<p>​	这里存在一个问题，就是在我们比较朴素的理解中，好坏掺一起，最后的结果应该是居中的，为什么这里却可以做到比最好的单一学习器更好呢？</p>
-<p>​	举个栗子，二分类任务，集成学习的结果通过投票法来产生，这样对于不同的个体学习器，在集成之后就产生了不同的效果：</p>
-<p><img src="/./../pic/image-20231220093434121.png" alt="image-20231220093434121"></p>
-<p>​	基于上面的图，我们可以给出我们对于个体学习器的要求：<strong>好而不同</strong>。我们希望不同的学习器在保证自身水平的前提下各有侧重，兼备准确性与多样性。</p>
-<p>​	 对于基分类器，我们假设错误率一定，则此时我们可以给出集成的错误率为：</p>
-<p><img src="/./../pic/image-20231220095825576.png" alt="image-20231220095825576"></p>
-<p>​	其中H(x)是对应分类器的结果，f(x)为真实函数</p>
-<p>​	上式显示出来，随着集成中的个体分类器的数目T的增大，集成的错误率将呈现指数级下降，最后趋近于零。但是这一点有一个关键假设：基学习器的误差互相独立，但是我们本身就是面向同一个问题训练的不同学习器，这显然是不独立的。</p>
-<p>​	另外，好而不同这个概念本身就存在冲突，准确性高的前提下，增加多样性就必然会造成准确性的牺牲。这也就是集成学习的核心。</p>
-<p>​	根据个体学习器的生成方式，目前集成学习方法可以分成两个大类。1.个体学习器之间有强关联，串行生成，前面打基础，后面985。2.个体学习器之间不存在强依赖关系，众人拾柴火焰高、</p>
-<p>​	前者的代表是boosting，后者的代表是bagging</p>
-<h2 id="boosting"><a href="#boosting" class="headerlink" title="boosting"></a>boosting</h2><p>​	这个系列的算法目的是将弱学习器提升为强学习器。这一族的工作机制为：先从初始训练集训练一个基学习器，再根据基学习器的表现，对于训练样本分布进行调整。是的先前基学习器做错的训练样本后续受到更多的关注。样本调整好了之后，我们重新训练下一个新的基学习器，重复上述过程，最后把训练出来的多个基学习器加权结合。</p>
-<p>​	在这个过程中，我们每一次调整样本，不是为了训练出来一个强学习器，换个说法就是强学习的训练并不容易，不然这算法就没意义了，我们希望的是，每次调整训练数据之后，产生的新的弱学习器可以给之前的弱学习器提供帮助。（主攻之前弱学习器不行的部分）</p>
-<p><img src="/./../pic/image-20231220102656884.png" alt="image-20231220102656884"></p>
-<p>​	训练集的调整操作：1.对于原始训练集重复采样2.改变训练集标签3.对原始训练集重新加权。</p>
-<p><img src="/./../pic/image-20231220103014753.png" alt="image-20231220103014753"></p>
-<p>​	boosting最有名的算法为AdaBoost，这个算法的基本思想为（N为样本数）：</p>
-<p><img src="/./../pic/image-20231220104140480.png" alt="image-20231220104140480"></p>
-<p>​	这里令学习器1在训练集2的性能接近随机猜测，意味着我们提高了学习器1错误部分的占比（本身弱学习器应该是优于随机猜测的）</p>
-<p>​	样本重新加权，应该怎么做：</p>
-<p><img src="/./../pic/image-20231220104951918.png" alt="image-20231220104951918"></p>
-<p>​	这个地方还是这样更好理解些：	<img src="/./../pic/image-20231220114630741.png" alt="image-20231220114630741"></p>
-<p>​	可以证明，随着弱学习器的数目增多，训练误差越来越小。</p>
-<p>​	举个栗子：</p>
-<p><img src="/./../pic/image-20231220191444733.png" alt="image-20231220191444733"></p>
-<p><img src="/./../pic/image-20231220191501701.png" alt="image-20231220191501701"></p>
-<p><img src="/./../pic/image-20231220191510407.png" alt="image-20231220191510407"></p>
-<p><img src="/./../pic/image-20231220191520729.png" alt="image-20231220191520729"></p>
-<h2 id="GBDT"><a href="#GBDT" class="headerlink" title="GBDT"></a>GBDT</h2><p>​	全称为梯度提升决策树</p>
-<p>​	也是boosting算法中的一个。</p>
-<p><img src="/./../pic/image-20231220144432395.png" alt="image-20231220144432395"></p>
-<p>​	整体上希望实现的一个效果：</p>
-<p><img src="/./../pic/image-20231220144446912.png" alt="image-20231220144446912"></p>
-<p>​	整体的目标函数：希望精确度尽可能高，损失函数尽可能小。</p>
-<p><img src="/./../pic/image-20231220145402133.png" alt="image-20231220145402133"></p>
-<p>​	这里的损失函数L的用处是说明一下结果与真实标签的不同程度，这里对于损失函数的定义，有两个方案，对于分类问题，使用负log似然损失，对于回归问题，可以用L2损失。</p>
-<p>​	对于L2损失：</p>
-<p><img src="/./../pic/image-20231220145944380.png" alt="image-20231220145944380"></p>
-<p>​	其实整个GBDT，其实就是每一次都对于残差进行预计。我们这里也可以看到梯度就是残差。</p>
-<p>​	举个栗子：</p>
-<p>​		这里第一步就是均值</p>
-<p><img src="/./../pic/image-20231220191146854.png" alt="image-20231220191146854"></p>
-<p><img src="/./../pic/image-20231220191249242.png" alt="image-20231220191249242"></p>
-<p><img src="/./../pic/image-20231220191255384.png" alt="image-20231220191255384"></p>
-<p><img src="/./../pic/image-20231220191306627.png" alt="image-20231220191306627"></p>
-<p>​	这里需要注意，我们是树，所以这里的学习器只能做一个二值判断，超过不超过各赋一个值。</p>
-<p>​	这个地方我们最直观的认知就是每一个学习器直接预测之前结果的残差，将这个学习器的训练结果直接补充进来，但是实际操作的时候我们发现，这样做容易导致过拟合，所以又补充了学习率的概念，对于残差的预测结果，我们进行一定程度的收缩，这提供了训练更多弱学习器的空间，使得最后的预测结果细节更丰富。</p>
-<h2 id="XGBoost"><a href="#XGBoost" class="headerlink" title="XGBoost"></a>XGBoost</h2><p>​	极致梯度提升，是一种基于GBDT的算法，在基本思想上和GBDT相同，但是进行了一定的优化，相较于GBDT，XGBoost更加高效，灵活，轻便。</p>
-<p>​	和GBDT相比，最大的不同就是对于目标函数的定义。</p>
-<p><img src="/./../pic/image-20240109110038497.png" alt="image-20240109110038497"></p>
-<p>​	这里的目标函数由损失函数和正则项组成。</p>
-<p>​	损失函数：模型的偏差。</p>
-<p>​	正则项：全部t棵树的复杂度的和。</p>
-<p><img src="/./../pic/image-20240109110621049.png" alt="image-20240109110621049"></p>
-<p>​	基于上面的两个部分，可以得到目标函数：<img src="/./../pic/image-20240109111951291.png" alt="image-20240109111951291"></p>
-<p>​	这里的G<sub>t</sub>和H<sub>t</sub>两部分，是对应的g<sub>m,i</sub>和h<sub>m,i</sub>的和。对应损失函数的一二阶导数。上式中的T是指树的叶子节点的个数。</p>
-<p><img src="/./../pic/image-20240109112251090.png" alt="image-20240109112251090"></p>
-<p><img src="/./../pic/image-20240109112301160.png" alt="image-20240109112301160"></p>
-<h2 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h2><p>​	我们希望每一个基学习器都可以做到彼此互补，存在一定的多样性，这需要我们的学习器尽可能独立，这一点我们可以认为尽可能做到，比如说对于训练样本进行采样，人为令每一个学习器的训练数据存在不同。但是这样操作的前提就是学习器数据不可以太寒酸，如果每一个学习器的数据都不重合，那很可能导致训练样本严重不足，所以，我们考虑使用相互之间有交叠的采样子集。</p>
-<p>​	Bagging正式这个并行式学习的最著名的代表。使用的是自助采样法。每次随机抽取后放回。这样做大概能保证初始训练集中63.2%的样本出现在采样集中。</p>
-<p><img src="/./../pic/image-20240108193319577.png" alt="image-20240108193319577"></p>
-<p>​	按照这样的采样方法，我们采样T个数据量为m的采样集。对于每一个采样集训练一个学习器，然后集合。这里对于分类任务简单投票，对于回归任务简单平均，同票随机。</p>
-<p>​	显然，Bagging算法我们训练基学习器越多效果越好，但是因为边际效应的存在，我们一般不会无限制的训练。一般根据D（特征维度数目）来决定，如果是分类问题，就取到D<sup>0.5</sup>，如果是回归的话，就取到D&#x2F;3</p>
-<h2 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h2><p>​	实质上就是Bagging算法在降低方差的路径上的延伸。</p>
-<p>​	牺牲了一些可解释性，令模型的效果更加稳定。</p>
-<p>​	每次训练，不仅只取一部分数据，还对于特征进行随机选取。</p>
-<h1 id="考点"><a href="#考点" class="headerlink" title="考点"></a>考点</h1><p>​	直到Bagging和boosting的区别和各自的特点就行。</p>
-<p>​	boosting中需要知道adaboost和GBDT就行了。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/" data-id="cls1g4min00000gue965wg8l5" data-title="集成学习" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-支持向量机" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/01/31/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" class="article-date">
-  <time class="dt-published" datetime="2024-01-31T06:20:01.000Z" itemprop="datePublished">2024-01-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/01/31/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/">支持向量机</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h1><h2 id="间隔与支持向量"><a href="#间隔与支持向量" class="headerlink" title="间隔与支持向量"></a>间隔与支持向量</h2><p>​	对于一组线性可分的数据，分类学习最基本的想法就是基于训练集，在样本空间中找到一个划分超平面，但是同样是可以实现划分，超平面之间亦有差距。那么我们真正要的是哪一个呢？</p>
-<p>​	以朴素的直接思维来看，肯定就是两类样本最中间的划分平面，这样做泛化性能和对于扰动的容忍性最好。</p>
-<p>​	基于我们这样的思路，我们需要计算的第一个数据就是样本点到这个超平面的距离，这里我们描述超平面为：w<sup>T</sup>x+b&#x3D;0，则对于样本点x，到超平面的距离为：</p>
-<p><img src="/./../pic/image-20240112100937612.png" alt="image-20240112100937612"></p>
-<p>​	如果对于一个线性可分的数据，可以正确分类，这说明对于一个样本有：</p>
-<p><img src="/./../pic/image-20240112102208826.png" alt="image-20240112102208826"></p>
-<p>​	这个地方之所以有等号，是因为这个等式的划分需要考虑距离这个超平面最近的几个样本点，也就是“支持向量”，两个异类支持向量到超平面的距离被称为<strong>间隔</strong>。</p>
-<p>​	<img src="/./../pic/image-20240112102349115.png" alt="image-20240112102349115"></p>
-<p>​	基于此，我们就可以确定我们这个工作的主要目标函数：令间隔尽可能大同时实现对于数据的划分。</p>
-<p><img src="/./../pic/image-20240112102436186.png" alt="image-20240112102436186"></p>
-<p>​	这两个是相同概念：</p>
-<p><img src="/./../pic/image-20240112102441837.png" alt="image-20240112102441837"></p>
-<h2 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h2><p>​	对于上面的目标函数，也就是有约束的最值问题，可以使用拉格朗日乘子法进行求解，上式可以写作：</p>
-<p><img src="/./../pic/image-20240112104621941.png" alt="image-20240112104621941"></p>
-<p>​	不过这里需要明确α<sub>i</sub>&gt;&#x3D;0。</p>
-<p>​	对于上式w,b求导可得：</p>
-<p><img src="/./../pic/image-20240112104700413.png" alt="image-20240112104700413"></p>
-<p>​	基于求导结果，带入回去拉格朗日乘子式，可以消去w,b，成为一个对于α的最值问题，也可以说是这个公式的对偶问题：</p>
-<p><img src="/./../pic/image-20240112104959940.png" alt="image-20240112104959940"></p>
-<p><img src="/./../pic/image-20240112105011736.png" alt="image-20240112105011736"></p>
-<p>​	基于此计算得到α之后，回过头去就可以求解w,b进而得到整体模型。因为存在不等式约束，上述过程满足KKT条件，即：</p>
-<p><img src="/./../pic/image-20240112105518155.png" alt="image-20240112105518155"></p>
-<p>​	这个条件的含义就是，除非是最大间隔边界上的支持向量，其他样例的α&#x3D;0，若α不等于0，则一定满足yf(x)&#x3D;1，是一个支持向量。</p>
-<p>​	所以现在的关键就是对上面提到的对偶问题的求解。这个地方是一个二次规划问题，常用的算法就是SMO。</p>
-<p>​	这个地方还有一个计算方法就是：</p>
-<p><img src="/./../pic/image-20240112111645622.png" alt="image-20240112111645622"></p>
-<p>​	就这个方法，求得α进而W可计算，同时支持向量可确定，因此，带一个支持向量，可计算得到b</p>
-<h2 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h2><p>​	我们前面这些内容的前提假设就是样本线性可分。但是有时候这个情况是不满足的，此时就需要我们对于数据进行升维，然后尝试在更高维的层面上，完成线性分类：</p>
-<p><img src="/./../pic/image-20240112111933635.png" alt="image-20240112111933635"></p>
-<p>​	只要原始空间维度有限，一定存在一个高位特征空间使得样本可分。∅(x)表示为样本点映射之后的特征向量。然后问题就回到了上面提到的部分，只要替换x就行。</p>
-<p><img src="/./../pic/image-20240112112812779.png" alt="image-20240112112812779"></p>
-<p>​	但是这个地方存在一个小bug就是∅(x<sub>i</sub>)<sup>T</sup>∅(x<sub>j</sub>)因为升维的原因，维度很高甚至是无限维度。因此直接计算并不容易，所以核函数出了一个小tips：</p>
-<p><img src="/./../pic/image-20240112114910656.png" alt="image-20240112114910656"></p>
-<p>​	也就是直接在原始空间样本，通过k直接计算结果。基于k我们就不用去计算过高维度的空间内积，省下来很大的计算量：</p>
-<p><img src="/./../pic/image-20240112164647635.png" alt="image-20240112164647635"></p>
-<p>​	求解后可得：</p>
-<p><img src="/./../pic/image-20240112164731935.png" alt="image-20240112164731935"></p>
-<p>​	对于核函数和k，我们可以理解为一个正定矩阵，我们不需要知道核函数向高维的映射方式，但是需要知道任意两个元素映射之后高维状态内积的结果：</p>
-<p><img src="/./../pic/image-20240112165517109.png" alt="image-20240112165517109"></p>
-<h2 id="软间隔与正则化"><a href="#软间隔与正则化" class="headerlink" title="软间隔与正则化"></a>软间隔与正则化</h2><p>​	核函数是一种很好的针对于数据不线性可分的情况的方法，但是我们需要知道的一点就是有些时候核函数的处理方式就好比是高烧打米塞地松，是有一定隐患的。</p>
-<p>​	缓解该问题的办法是允许模型在一些样本上出错，为此引入了软间隔的概念。</p>
-<p><img src="/./../pic/image-20240112170458666.png" alt="image-20240112170458666"></p>
-<p>​	在我们前面提到的约束条件下，所有样本都必须划分正确，这成为硬间隔。而软间隔则允许有一些样本不满足定好的约束。</p>
-<p>​	但是我们不能无限制的纵容他们，我们希望的是在间隔最大化的同时，尽可能减少不满足约束的样本个数。</p>
-<p>​	因此，目标函数可以表示为：</p>
-<p><img src="/./../pic/image-20240112171538291.png" alt="image-20240112171538291"></p>
-<p>​	前面的部分就是正常间隔大小，后半部分则是对于那些不满足约束的样本，造成的损失部分，其中l<sub>0&#x2F;1</sub>是一个0-1判别，无关于脱离约束的程度，只要脱离了就是1。C是软间隔下的超参数，C无限大的时候，将迫使所有样本满足约束，C越小，对于样本跳脱的容忍度越高。</p>
-<p>​	对于l<sub>0&#x2F;1</sub>还有其他函数替换，类似hinge损失（也叫合页损失），指数损失，优点在于连续，并且和样本脱离的程度有关。</p>
-<p>​	一些损失函数：<img src="/./../pic/image-20240112172205244.png" alt="image-20240112172205244"></p>
-<p>​	</p>
-<h2 id="支持向量回归"><a href="#支持向量回归" class="headerlink" title="支持向量回归"></a>支持向量回归</h2><p>​	这个地方重点在于回归，传统回归模型是基于模型输出和真实的输出之间的不同来计算损失。</p>
-<p>​	支持向量回归这里，我们使用了之前提到的间隔概念，我们认为只要偏差可控，在一定范围内，就可以被认为是预测正确的。</p>
-<p>​	下图中阴影部分就是认为正确预测的样例。</p>
-<p><img src="/./../pic/image-20240112230115724.png" alt="image-20240112230115724"></p>
-<p>​	这样的情况下，问题的损失函数为：</p>
-<p><img src="/./../pic/image-20240112230508477.png" alt="image-20240112230508477"></p>
-<p>​	其中L为：<img src="/./../pic/image-20240112230526036.png" alt="image-20240112230526036"></p>
-<p>​	<img src="/./../pic/image-20240112232443697.png" alt="image-20240112232443697"></p>
-<p><img src="/./../pic/image-20240112232448659.png" alt="image-20240112232448659"></p>
-<p><img src="/./../pic/image-20240112232454891.png" alt="image-20240112232454891"></p>
-<p>​	转到对偶问题之后就没什么不同的了。</p>
-<h1 id="考试考点"><a href="#考试考点" class="headerlink" title="考试考点"></a>考试考点</h1><p>​	SVM硬间隔对偶问题的计算。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/31/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" data-id="cls1ef0lm0000z8uebxlkg16c" data-title="支持向量机" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-半监督学习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/01/31/%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" class="article-date">
-  <time class="dt-published" datetime="2024-01-31T06:14:00.000Z" itemprop="datePublished">2024-01-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/01/31/%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/">半监督学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="半监督学习"><a href="#半监督学习" class="headerlink" title="半监督学习"></a>半监督学习</h1><h2 id="未标记样本"><a href="#未标记样本" class="headerlink" title="未标记样本"></a>未标记样本</h2><p>​	我们在丰收季节来到瓜田，满地都是西瓜，瓜农说这三四个都是好瓜，又指着地里的五六个瓜说这些还不好，还需要长几天。就这些信息，我们能够构建一个模型来判断这些瓜那些是好瓜呢？</p>
-<p>​	显然，这个在操作上是可以做到的，但是，我们只有不到十个瓜来做训练样本，这明显有些太少了。于是，我们把罪恶的目光投向了地里其他的瓜。</p>
-<p>​	什么意思呢？我们现在有一个有标记样本集合D<sub>l</sub>，还有一个未标记样本集合D<sub>u</sub>，并且我们可以确定l&lt;&lt;u，所以为了确保模型的能力，我们要把D<sub>u</sub>用上。最简单的，就是把D<sub>u</sub>也一个个标记上。</p>
-<p>​	但是，有这功夫我干什么不好呢？</p>
-<p>​	新方案：用有标记的样本，训练一个模型，然后，用这个模型去找瓜，确认好坏之后，加入有标记样本集合，重新训练，每一次都找对于改善模型性能有帮助的瓜。这种学习方式称之为“主动学习”。可以用较少的查询来获得尽可能好的性能。</p>
-<p>​	so，我们该怎么确认瓜的好坏呢？如果我们不能额外获得新的标记，我们还可以这样做吗？</p>
-<p>​	答案是可以的。</p>
-<p>​	为什么？因为未标记不等于没价值（公式秒了），他们和有标记样本是独立同分布采样出来的，他们的分布信息是对于模型有用的。</p>
-<p><img src="/./../pic/image-20231208104945996.png" alt="image-20231208104945996"></p>
-<p>​	让学习器不依赖外界交互（类似前面的用这个模型去找瓜，确认好坏这个行为），利用未标记样本提升学习性能，这就是半监督学习。是对于“有标记数据少，未标记数据多”这个普遍现象的一种应对方式。</p>
-<p>​	如何利用未标记样本，这需要我们将未标记样本的数据分布于已经标记的数据的类别之间进行联系。</p>
-<p>​	最常见的就是“聚类假设”还有“流形假设”，其本质都是相似的样本拥有相似的输出这个基本假设。</p>
-<h2 id="生成式方法"><a href="#生成式方法" class="headerlink" title="生成式方法"></a>生成式方法</h2><p>​	假设所有数据（有无标记都算上），是由同一个潜在的模型生成的，我们可以通过EM算法，进行极大似然估计，求解这个模型的参数。</p>
-<p>​	可以假设是高斯混合模型，那么样本基于如下概率密度生成：</p>
-<p><img src="/./../pic/image-20231208114551259.png" alt="image-20231208114551259"></p>
-<p>​	高斯混合模型这部分在聚类中进行过计算和推导。</p>
-<h2 id="半监督SVM"><a href="#半监督SVM" class="headerlink" title="半监督SVM"></a>半监督SVM</h2><p>​	也叫S3VM，是聚类假设在考虑线性超平面划分之后的推广。</p>
-<p>​	<img src="/./../pic/image-20231208115853110.png" alt="image-20231208115853110"></p>
-<p>​	S3VM的工作目标是：找到能将两类有标记的样本分开，并且穿过数据低密度区域的超平面进行划分。</p>
-<p>​	在S3VM中，最著名的是TSVM。也是一种针对二分类问题的学习方法。试图考虑对于未标记样本进行各种可能得标记指派，尝试将每一个未标记样本分作正反例，然后在所有结果中，找一个间隔最大化的超平面。最后，以这个超平面对应的标记指派作为结果。</p>
-<p>​	形式化解释：就是对于D<sub>u</sub>&#x3D;{x<sub>l+1</sub>,…,x<sub>l+u</sub>}，分别给定一个对应的y<sub>i</sub>，使得：</p>
-<p><img src="/./../pic/image-20231208134613520.png" alt="image-20231208134613520"></p>
-<p>​	基于上面的目标函数，我们可以发现：</p>
-<p>​	1.这是一个软间隔SVM</p>
-<p>​	2.对于有无标签的样本，他们对于模型的重要程度不同。</p>
-<p>​	w.b确定了划分的超平面，系数为松弛向量，C<sub>l</sub>,C<sub>u</sub>是用户指定的参数，用来平衡有无标记样本对模型的影响程度。</p>
-<p>​	对于TSVM，使用局部搜索迭代求解。每一次找两个之前的SVM划分错误的未标记样本，交换他们的标记，重新计算。</p>
-<p>​	<img src="/./../pic/image-20231208135358637.png" alt="image-20231208135358637"></p>
-<h2 id="图半监督学习"><a href="#图半监督学习" class="headerlink" title="图半监督学习"></a>图半监督学习</h2><p>​	给定一个数据集，可以映射为一个图，数据集中的每一个样本对应一个节点，如果样本之间的相似度很高，则对应节点之间存在一条边。边的强度或者说对应权重正比于样本之间的相似度。然后，在这个图上，我们可以将有标记的点视为染色，其余视作无色，于是半监督学习就对应于颜色的传播过程。</p>
-<p>​	构建图的过程中，对于相似度的计算方式基于高斯函数定义为：</p>
-<p><img src="/./../pic/image-20231208141852479.png" alt="image-20231208141852479"></p>
-<p>​	从我们朴素的理解中，我们能够想到，相似的样本应该有着相似的标记。进而我们可以联想到，在这个全部样本生成的图中，关于标签的变化应该是平滑的。</p>
-<p>​	进而，我们开始思考关于图的平滑性的定义：</p>
-<p><img src="/./../pic/image-20231208143004618.png" alt="image-20231208143004618"></p>
-<p>​	补充一下图的平滑性：</p>
-<p><img src="/./../pic/image-20231208153643976.png" alt="image-20231208153643976"></p>
-<p>​	在西瓜书中，这个地方有另一个称呼，叫做关于f的能量函数，其中f为关于对有无标记样本的预测结果组成的矩阵。f&#x3D;(f<sub>l</sub><sup>T</sup>,f<sub>u</sub><sup>T</sup>)，其中f<sub>l</sub>&#x3D;(f(x<sub>1</sub>);…;f(x<sub>l</sub>))，对于f<sub>u</sub>同理，另外，此处的D是一个对角阵，对角元素分别为1-l+u行的W阵元素之和：</p>
-<p><img src="/./../pic/image-20231208143646181.png" alt="image-20231208143646181"></p>
-<p>​	但是这样来看，似乎平滑性更好理解一些。</p>
-<p>​	这里我们需要对f求导，寻找目标函数的最小值。对于使目标函数最小的f，我们可以预料到的是有标记部分的预测结果也就是f<sub>l</sub>&#x3D;(f(x<sub>1</sub>);…;f(x<sub>l</sub>))，应该是分别等于对应的标签y<sub>i</sub>。而在未标记的样本上满足Lf&#x3D;(D-W)f&#x3D;0，这个可以通过对于13.12公式求导获得。</p>
-<p>​	因为我们的矩阵存在有无标签样本的划分，所以，我们采用分块矩阵的方式来表示这个公式，按照有标签样本l的行列数划分，即：</p>
-<p>​	<img src="/./../pic/image-20231208144445992.png" alt="image-20231208144445992"></p>
-<p>​	基于此，重写目标函数为：</p>
-<p><img src="/./../pic/image-20231208144743331.png" alt="image-20231208144743331"></p>
-<p>​	后续推导：1.求导，其实到这里就可以得到结果了：</p>
-<p><img src="/./../pic/image-20231208145016465.png" alt="image-20231208145016465"></p>
-<p>​	2.一些补充，新设置一些变量便于计算：</p>
-<p><img src="/./../pic/image-20231208145155398.png" alt="image-20231208145155398"></p>
-<p>​	此时，就可以做到已知给定标签，计算预测未标记样本，另外也得到了最优解的存在条件，即I-P<sub>UU</sub>这个矩阵可逆。</p>
-<p>​	对于上式的补充之我们为什么要引入一个P呢？</p>
-<p>​	<img src="/./../pic/image-20231208145514931.png" alt="image-20231208145514931"></p>
-<h4 id="图半监督学习补充之多分类问题"><a href="#图半监督学习补充之多分类问题" class="headerlink" title="图半监督学习补充之多分类问题"></a>图半监督学习补充之多分类问题</h4><p>​	此时W矩阵和图的构建不变，D矩阵也不变，此时对于f矩阵存在概念扩充：f&#x3D;(f<sub>1</sub><sup>T</sup>,f<sub>2</sub><sup>T</sup>,f<sub>3</sub><sup>T</sup>,…,f<sub>分类个数</sub><sup>T</sup>)<sup>T</sup>，此时整个矩阵的形状为(l+U)*C，C为标签类别的个数：</p>
-<p>​	<img src="/./../pic/image-20231208150438984.png" alt="image-20231208150438984"></p>
-<p>​	右上角的矩阵就是S计算的公式：</p>
-<p><img src="/./../pic/image-20231208150912949.png" alt="image-20231208150912949"></p>
-<p>​	该算法对应正则化框架：</p>
-<p><img src="/./../pic/image-20231208151012456.png" alt="image-20231208151012456"></p>
-<p>对于整个基于图的半监督学习的算法的总结：</p>
-<p><img src="/./../pic/image-20231208151105095.png" alt="image-20231208151105095"></p>
-<h2 id="半监督聚类"><a href="#半监督聚类" class="headerlink" title="半监督聚类"></a>半监督聚类</h2><p>​	众所周知，聚类是典型的无监督学习任务，但是聚类不用是本身的特性，如果有一些有标签的数据，我们也同样可以获得更好的聚类效果。</p>
-<p>​	标签在聚类这里的第一类应用就是补充必连和勿连约束，见字知意。</p>
-<p>​	约束K均值算法就是利用这个监督信息的代表，利用了样本集和必连勿连关系，算法本身和之前的K均值算法没有什么本质上的区别，就是在计算出来了一个样本最近的簇之后，要判断一个是否会违背必连勿连关系。如果违背了，会返回错误提示。</p>
-<p>​	需要注意，这里的必连勿连关系需要正反两对。(a,b),(b,a)都得有。</p>
-<p>​	标签的第二类应用就是少量有标记样本。什么意思呢？我们现在有一个样本集合D，我手里有一小批有标记样本，我知道其中每一个样本对应隶属于第几个簇。</p>
-<p>​	这个应用方式就很简单了，直接替换K均值算法中随机取点做种子的步骤，用他们作为聚类中心且迭代过程中不改变这些隶属关系就可以了。</p>
-<h1 id="考试要求"><a href="#考试要求" class="headerlink" title="考试要求"></a>考试要求</h1><p>​	能写出来一两种半监督学习算法的思想就行。</p>
-<p>​	</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/31/%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" data-id="cls1e7nuo0000c8ueakx59mrb" data-title="半监督学习" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-贝叶斯分类器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/01/30/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" class="article-date">
-  <time class="dt-published" datetime="2024-01-30T06:04:56.000Z" itemprop="datePublished">2024-01-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/01/30/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/">贝叶斯分类器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="贝叶斯分类器（生成式分类器）"><a href="#贝叶斯分类器（生成式分类器）" class="headerlink" title="贝叶斯分类器（生成式分类器）"></a>贝叶斯分类器（生成式分类器）</h1><h2 id="贝叶斯决策论"><a href="#贝叶斯决策论" class="headerlink" title="贝叶斯决策论"></a>贝叶斯决策论</h2><p>​	是概率框架下实施决策的基本方法。</p>
-<p>​	对于分类任务来说，在所有相关概率都已知的理想条件下，贝叶斯决策论考虑如何基于这些概率和误判损失来选择最优的类别标记。</p>
-<p>​	首先引入一个概念：条件风险</p>
-<p>​	对于多分类任务，我们将一个真实标记为j的样本误分类到i，这意味着我们的模型工作出现了损失，这个损失取决于本身的分类错误带来的损失已经对于给定样本发生这个错误的概率。</p>
-<p><img src="/./../pic/image-20231212153859340.png" alt="image-20231212153859340"></p>
-<p>​	我们的目标：令总体风险最小。</p>
-<p>​	进而产生了贝叶斯判定准则：对于每一个样本输入，为了最小化总体风险，我们都去选择哪个能使条件风险R(c|x)最小的类别标记。</p>
-<p><img src="/./../pic/image-20231212154031305-1706681217453-1.png" alt="image-20231212154031305"></p>
-<p>​	此时，得到的h*就称之为是贝叶斯最优分类器，基于此计算就可以得到对应风险，1-风险&#x3D;这个分类器能达到的最好性能。</p>
-<p>​	最简单的情况，为了最小化分类错误率，可以将误判损失记作：</p>
-<p><img src="/./../pic/image-20231212154849322-1706681217454-2.png" alt="image-20231212154849322"></p>
-<p>​	这种情况下，损失或者说风险就等于是错误率等于1-正确率：</p>
-<p><img src="/./../pic/image-20231212155021145-1706681217454-7.png" alt="image-20231212155021145"></p>
-<p>​	此时对应的最优分类器就是（和上面那个等价，特殊情况的另一个表示方式）：</p>
-<p><img src="/./../pic/image-20231212155103749-1706681217454-3.png" alt="image-20231212155103749"></p>
-<p>​	所以，我们需要知道后验概率P(c|x)，但是这又谈何容易？</p>
-<p>​	换个说法，我要是已知这个数据，多你一个方法不多，少你一个不少，贝叶斯之所以经得起时间的考验，就是因为，我们可以通过一些已知条件和概率论知识，计算得到后验概率也就是P(c|x)的<strong>估计</strong>。</p>
-<p>​	对于后验概率的计算，我们这里也有两个策略，一来是给定一个X，我们通过直接建模来预测c，这就是判别式模型（比如决策树，支持向量机），另一个方法是对于P(x,c)这个联合概率分布建模，基于此计算P(c|x)，这就是生成式模型。</p>
-<p>​	对于生成式模型，之所以需要对于P(x,c)这个联合概率分布建模，显然是因为条件概率的公式：</p>
-<p><img src="/./../pic/image-20231213191010521-1706681217454-9.png" alt="image-20231213191010521"></p>
-<p>​	基于贝叶斯定理，上式又等于：</p>
-<p><img src="/./../pic/image-20231213191034566-1706681217454-6.png" alt="image-20231213191034566"></p>
-<p>​	到这里都是不难理解的，其中P(c)就是类先验概率，另外，P(X)是和类标记无关的，所以我们的问题其实就是基于训练数据，估计分子部分。</p>
-<p>​	诶，问题来了，我们得怎么估计呢？</p>
-<p>​	P(c)是什么？是类先验概率（屁话），是样本空间中各类样本的占比，10个样本，1类别有5个，P（1）就是0.5，根据大数定律，这个搞法在训练集充足，独立同分布的情况下，是靠谱的。</p>
-<p>​	那么，类条件概率P(x|c)呢？首先，上面估计P(c)的方法是不行的，因为我们的样本数很有可能是覆盖不了样本空间全部的取值可能的。这意味着我们这个搞法，八成是不合理的。</p>
-<p>​	so？can can need new idea?</p>
-<h2 id="极大似然估计"><a href="#极大似然估计" class="headerlink" title="极大似然估计"></a>极大似然估计</h2><p>​	磨刀不误砍柴工，先学习一下工具总不是错的。（这部分我来回来去看，发现确实是放哪里都不好，索性按照原书的来）</p>
-<p>​	分类任务这么复杂，万恶之源其实就是类条件概率P(x|c)，这里我们假定认为，P(x|c)是具有确定的形式的，由参数θ唯一确定，那么我们只要通过训练数据，获得θ，我们就可以得到类条件概率P(x|c)。</p>
-<p>​	so？如何计算θ呢？这就是极大似然估计的用处了，他认为参数是客观存在的固定值，我们现在有数据，也已知分布方式，我们要找一个能让当前数据出现概率最大的参数。</p>
-<p>​	下式就是所有数据出现的概率，我们希望他越大越好，最大的时候的θ就是我们要的。</p>
-<p><img src="/./../pic/image-20231214214111977-1706681217454-4.png" alt="image-20231214214111977"></p>
-<p>​	连乘看起来不友好，我们转化一下：</p>
-<p><img src="/./../pic/image-20231214214216441-1706681217454-5.png" alt="image-20231214214216441"></p>
-<p>​	此时我们的目标就是：</p>
-<p><img src="/./../pic/image-20231214214237021-1706681217454-8.png" alt="image-20231214214237021"></p>
-<p>​	然后就是各显神通，求导开算了，最常用的高斯分布计算结果为：</p>
-<p><img src="/./../pic/image-20231214214321208-1706681217454-10.png" alt="image-20231214214321208"></p>
-<p>​	这个部分跟我们这章节关系不大，不过确实是，后面一些说法的基础，还是先提一下的好。</p>
-<h2 id="朴素贝叶斯分类器"><a href="#朴素贝叶斯分类器" class="headerlink" title="朴素贝叶斯分类器"></a>朴素贝叶斯分类器</h2><p>​	首先，看一下上面的难点，类条件概率P(x|c)是所有属性上的联合概率，但是训练样本有限，不好估计，但是正所谓，世上无难事，只要肯放弃，我们可以走捷径啊。</p>
-<p>​	朴素贝叶斯分类器，采用了属性条件独立性假设，也就是假设每种属性独立对于分类结果发生影响。看起来平平无奇，但是朴素这一刀下去基本就把可能性砍得差不多了。这样就可以计算P(x|c)了（虽然也挺没道理的）</p>
-<p>​	首先，基于假设，重写之前的贝叶斯定理公式：</p>
-<p>​	<img src="/./../pic/image-20231213193122994-1706681217454-12.png" alt="image-20231213193122994"></p>
-<p>​	这里的d就是属性的数目。</p>
-<p>​	那么我们这个地方把这些坑都填上了，回过头去看贝叶斯判定准则，也就是：</p>
-<p><img src="/./../pic/image-20231213193835290-1706681217454-11.png" alt="image-20231213193835290"></p>
-<p>​	到这里，朴素贝叶斯怎么算基本就比较明确了。</p>
-<p>​	首先，对于离散数据（离散好啊，就喜欢这个），计算方式比较简单，就是类似统计方法：</p>
-<p><img src="/./../pic/image-20231213194217381-1706681217454-15.png" alt="image-20231213194217381"></p>
-<p>​	其次，对于一些连续的属性数据（苦瓜脸），需要使用概率密度函数。这里我们首先需要假设一个类条件概率P(x|c)的分布，这里一般都是高斯分布，然后根据训练数据计算分布的均值和方差。</p>
-<p>​	此处一般使用极大似然估计。</p>
-<p>​	but！（其实到这里基本都知道要说什么了）</p>
-<h3 id="拉普拉斯变换"><a href="#拉普拉斯变换" class="headerlink" title="拉普拉斯变换"></a>拉普拉斯变换</h3><p>​	首先，我们看到上面的贝叶斯判定准则那里，是连乘，而一旦我们存在一个属性对应的条件概率P(x<sub>i</sub>|c)&#x3D;0，显然这是很有可能发生的，也就是训练数据中对于类别c我们没有对应x<sub>i</sub>属性的数据存在，此时我们前面的分类器就会非常愚笨的认为，我既然没见过，这个属性能对应到c？这怎么可能呢？然后把这个概率输出为0。</p>
-<p>​	这显然不是我们想看到的。</p>
-<p>​	于是，我们为了保证未出现的属性值，需要在估计概率值的过程中，进行平滑操作。常用的就是拉普拉斯平滑，计算方式为：</p>
-<p><img src="/./../pic/image-20231213195342450-1706681217454-13.png" alt="image-20231213195342450"></p>
-<p>​	这种情况下，我们前面提到的情况，对应条件概率不为0，至少可以继续算下去。避免了训练样本不充分导致概率估值为0的问题。</p>
-<h2 id="半朴素贝叶斯分类器"><a href="#半朴素贝叶斯分类器" class="headerlink" title="半朴素贝叶斯分类器"></a>半朴素贝叶斯分类器</h2><p>​	我们在前面的内容中，意识到后验概率P(c|x)估计的困难其实主要是源于类条件概率P(x|c)的估计。因为，我们通过采取了一刀切的方法，令属性之间彼此独立，基于此假设，我们提出了朴素贝叶斯分类器，实现了对于后验概率的估计。</p>
-<p>​	但是，我们可以明显感觉到，这实际上是一个很强的条件假设，我们为了实现朴素贝叶斯分类，牺牲了很多。于是，我们开始试着放松独立性假设，进而得到了半朴素贝叶斯分类器。</p>
-<p>​	但是我们稍微细想一下，其实半朴素本身是一个范围很大的概念，而我们这里最常用的一个策略则是独依赖估计，所谓独依赖，就是指每一个属性在自己之外最多依赖于一个其他属性，也就是：<img src="/./../pic/image-20231214145603828-1706681217454-14.png" alt="image-20231214145603828"></p>
-<p>​	这里的pa<sub>i</sub>就是属性x<sub>i</sub>所以来的属性，称作父属性。基于公式，我们不难看出，只要确定了每一个属性的父属性，套公式用朴素贝叶斯的计算方式求概率算就行。</p>
-<p>​	所以，问题再一次化简，如何确定父属性？</p>
-<p>​	方法一：最直接的方法，令所有属性都依赖于同一个属性，成为“超父”，这个属性可以通过交叉验证的方法去找。</p>
-<p>​	方法二：基于最大带权生成树算法，获得属性之间的关系。将属性之间的以依赖关系化简为树形结构。也叫TAN</p>
-<p>​	整体的策略如下：</p>
-<p><img src="/./../pic/image-20231214154814131-1706681217454-18.png" alt="image-20231214154814131"></p>
-<p>​	基于此，其实我们可以看出来，这个TAN的底层逻辑就是保留强相关属性之间的依赖性。</p>
-<p>​	半朴素贝叶斯在数据足够充分的前提下，学习到的样本关系更多，这很可能会带来泛化性能的提升，但是如果样本有限，就别作妖了。</p>
-<h2 id="高斯判别分析"><a href="#高斯判别分析" class="headerlink" title="高斯判别分析"></a>高斯判别分析</h2><p>​	首先，我们使用这个方法的前提也是我们前面进行贝叶斯分类的一个痛点：类条件概率P(x|c)的估计困难。</p>
-<p>​	而高斯判别分析则是在这个地方给出了一个plan B。</p>
-<p>​	我认为每类数据都是由多元高斯分布产生，即：</p>
-<p><img src="/./../pic/image-20231214202155047-1706681217454-16.png" alt="image-20231214202155047"></p>
-<p>​	那么显然，我们对于类条件概率估计的困难在这里就转换成为了对于多元高斯分布两个参数的估计。</p>
-<p>​	其中均值项好办，直接平均就可以。</p>
-<p>​	对于方差项（因为多元，所以用的协方差矩阵）：</p>
-<p><img src="/./../pic/image-20231214205621940-1706681217454-17.png" alt="image-20231214205621940"></p>
-<p>​	此时类别c的判别函数为：	<img src="/./../pic/image-20231214203111134-1706681217454-24.png" alt="image-20231214203111134"></p>
-<p>​	比较常使用的一般式两个类别的判别分析：</p>
-<p><img src="/./../pic/image-20231214203159579-1706681217454-20.png" alt="image-20231214203159579"></p>
-<p>​	显然有点乱七八糟，不过我们可以基于一些特殊情况，对上式进行调整：</p>
-<p><img src="/./../pic/image-20231214203630783-1706681217454-19.png" alt="image-20231214203630783"></p>
-<p>​	上式中，其实b的第一项，因为协方差矩阵相等，这项是&#x3D;0的，直接看后面两项即可。</p>
-<p>​	直接放一个栗子：	<img src="/./../pic/image-20231214212614701-1706681217454-23.png" alt="image-20231214212614701"></p>
-<p><img src="/./../pic/image-20231214212717451-1706681217454-21.png" alt="image-20231214212717451"></p>
-<p><img src="/./../pic/image-20231214212727884-1706681217454-22.png" alt="image-20231214212727884"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/30/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" data-id="cls1e7nuq0001c8ue7alo126m" data-title="贝叶斯分类器" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/01/29/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2024-01-29T10:52:48.727Z" itemprop="datePublished">2024-01-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/01/29/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/29/hello-world/" data-id="clrythtau0000bguegd1z1h1a" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">国科大模式识别与机器学习23秋季学习笔记</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">国科大模式识别与机器学习23秋季学习笔记</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/01/31/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/">线性模型</a>
-          </li>
-        
-          <li>
-            <a href="/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
-          </li>
-        
-          <li>
-            <a href="/2024/01/31/%E5%88%A4%E5%88%AB%E5%BC%8F%E5%88%86%E7%B1%BB%E5%99%A8/">判别式分类器</a>
-          </li>
-        
-          <li>
-            <a href="/2024/01/31/%E9%99%8D%E7%BB%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/">降维与度量学习</a>
-          </li>
-        
-          <li>
-            <a href="/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/">集成学习</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2024 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><span class="site-name">Hexo</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Hexo</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/01/31/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/" title="线性模型">线性模型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-31T08:03:24.000Z" title="Created 2024-01-31 16:03:24">2024-01-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a></span></div><div class="content">线性模型基本形式​	大道至简，大象无形，大音希声~
+​	作为最简单的建模模型，线性建模是很多更强大更复杂的模型的基础。
+​	线性模型是通过对于样本的一些属性进行线性组合进而对于结果做出预测的函数。即：
+
+​	一般来说，也可以用向量模式表示：
+
+​	这里的w是一个向量，对应于每一个特征对于最后结果的贡献。这个也可以视作模型的可解释性。
+线性回归​	这里我们可以先用最简单的情况来进行情形进行理解，也就是一个属性对应于一个结果，相当于一个平面几个点，叫你画条线叫这些点距离这条线越近越好。
+​	显然，我们要学习的就是：
+
+​	这里有两个未知数：w,b，都是单个实数，计算方式就是基于我们前面的约束条件，进行最小二乘法：
+
+​	显然，我们希望w和b的取值可以另这个式子尽可能小，所以我们需要对其进行求导：
+
+​	然后另这两个导数等于0，就可以得到对应的最优解公式：
+
+​	其中分子上的x杠是均值的意思
+
+​	基于此，我们可以稍微扩充一下我们之前的情形，我们希望可以带进来更多的属性，此时w从之前的单实数变向量。另外我们可以直接用增广向量的形式，把b也收进来，此时的数据格式为：
+
+​	右边是增广之后的w， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="神经网络">神经网络</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-31T07:14:51.000Z" title="Created 2024-01-31 15:14:51">2024-01-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a></span></div><div class="content">神经网络神经元模型​	神经元细胞通过突触链接，突触通过电化学过程传递信息。在电信号的点位超过一个阈值之后，链接的神经元被激活。基于此，提出M-P神经元模型，是对于上述生物情况的简化。
+
+​	激活函数的种类很丰富，用处就是将输入的数值以一种非线性的方式映射为输出0或者1。阶跃函数存在不连续不光滑的问题，常用的激活函数为sigmoid函数。后来逐渐被更简单的Relu函数替代，对于不同类型的问题，要选择不同的激活函数。
+感知机与多层网络​	感知机由两层神经元组成，输出层位上面提到的M-P神经元。可以实现逻辑运算（与，或，非），这里使用的是sigmoid函数做激活，只要输入层计算不小于0.5，输出结果为1.
+​	感知机的学习过程：
+
+​	感知机只有输出层可以做激活函数处理，学习能力相当有限。因为一层的神经网络换个说法就是线性操作，属于是线性可分问题的，即便是异或操作做起来都费劲。这种情况下 ，我们就需要考虑多层功能神经元。
+​	两层神经网络，可以实现异或逻辑操作。
+
+​	继续延伸，那就是多层前馈神经网络。也叫做全连接前馈神经网络。
+
+​	这个操作的过程可以视作为矩阵操作（每一层之间分开算）：
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/01/31/%E5%88%A4%E5%88%AB%E5%BC%8F%E5%88%86%E7%B1%BB%E5%99%A8/" title="判别式分类器">判别式分类器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-31T07:12:29.000Z" title="Created 2024-01-31 15:12:29">2024-01-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a></span></div><div class="content">判别式分类器线性判别分析​	简称LDA，是一种经典的线性学习方法，也叫fisher判别分析。
+​	LDA的思想很朴素，给定训练样例集合，把这些样例投影到一条直线上，使得同类样例的投影点尽可能接近，异类样例的投影点尽可能远离。我们希望的表现效果如下图所示：
+
+​	给定数据集，我们需要计算每一类数据的均值向量和协方差矩阵，然后将数据投影到直线w上。则：
+​	
+​	并且，这里的4个数据都是实数。基于我们前面提到的希望同类样例的投影点尽可能接近，异类样例的投影点尽可能远离的目标，给出目标函数：
+​	其中分子部分对应类中心距离，分母部分对应同类别投影点临近程度。
+
+​	补充定义，重写上式：
+
+​	上式为LDA的目标函数，也称之为Sb和Sw的广义瑞利商。显然这里定义中的Sb和Sw都是基于给定数据集已知的。此时我们的目标就是计算W.
+​	显然，上式的分子分母都是关于w的二次项，因此这个式子的解只会和W的方向有关，与w的长度无关，因此，我们可以再次重构上式：
+​	因为Sb和Sw是确定的数据，w是方向确定下，长度可以伸缩的，这意味着我们一定可以做到令分子为1。
+
+​	对于有约束条件的求最值，比较常用的就 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/01/31/%E9%99%8D%E7%BB%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/" title="降维与度量学习">降维与度量学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-31T07:09:22.000Z" title="Created 2024-01-31 15:09:22">2024-01-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a></span></div><div class="content">降维与度量学习k近邻学习​	也就是KNN，是一种常用的监督学习方法。工作机制为：给定测试样本，找最近的k个训练样本，基于这k个邻居的信息来进行预测。
+​	面对分类：投票法
+​	面对回归：平均法
+
+​	KNN的关键参数：k，根据上图，我们会发现，k的选择会直接影响到测试样本的输出结果。
+​	假设，此时我们面对一个分类问题设置k&#x3D;1，也就是说，我们直接选择使用和测试样本最近的训练样本标签作为输出结果。此时我们会发现：
+
+​	这个简单的分类器，泛化错误率不超过贝叶斯最优分类器错误率的两倍、
+低维嵌入​	上一节讨论的前提：任意测试样本附近一定距离，能找到测试样本
+​	but！
+​	既然这个事情是前提，就说明现实的任务中这个部分的内容往往很难实现。
+​	why？
+​	这个前提的另一种说法就是要求数据的密度满足一定条件，可以通过归一化划定对应范围。但是随着维度的增加，数据必然被稀释，此时如果还要满足相同的密度要求，需要的数据量呈现指数级上升。——维度灾难
+​	所以说，高维不行！我们要降维。下图为一个直观的例子：
+​	
+​	要求：原始空间中的样本之间的距离在低维空间中得以保持
+​	经典的降 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/" title="集成学习">集成学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-31T07:01:36.000Z" title="Created 2024-01-31 15:01:36">2024-01-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a></span></div><div class="content">集成学习个体与集成​	集成学习通过构建并结合多个学习器来完成学习任务，有时也被称为是多分类器系统。
+​	集成学习的一般结构：先产生一组“个体学习器”，再用某种策略将他们结合起来。
+​	个体学习器通常是基于现有的学习算法和训练数据产生。基于个体学习器，可以对于集成学习进行分类：
+​	同质：集成中只包含有相同类型的个体学习器，比如都是各种神经网络或者各种决策树。
+​	异质：就是包含不同类型的个体学习器，比如神经网络和决策树都有。
+​	集成学习，通过将多个学习器进行结合，往往可以获得比单一学习器显著优越的泛化性能，这一点对于弱学习器尤为明显，集成学习的很多理论也都是针对于弱学习器来进行的。——三个臭皮匠了属于是
+​	（弱学习器：有用但不多的学习器，泛化性能略优于随机猜测）
+​	这里存在一个问题，就是在我们比较朴素的理解中，好坏掺一起，最后的结果应该是居中的，为什么这里却可以做到比最好的单一学习器更好呢？
+​	举个栗子，二分类任务，集成学习的结果通过投票法来产生，这样对于不同的个体学习器，在集成之后就产生了不同的效果：
+
+​	基于上面的图，我们可以给出我们对于个体学习器的要求：好而不同。我们希 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/01/31/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" title="支持向量机">支持向量机</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-31T06:20:01.000Z" title="Created 2024-01-31 14:20:01">2024-01-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a></span></div><div class="content">支持向量机间隔与支持向量​	对于一组线性可分的数据，分类学习最基本的想法就是基于训练集，在样本空间中找到一个划分超平面，但是同样是可以实现划分，超平面之间亦有差距。那么我们真正要的是哪一个呢？
+​	以朴素的直接思维来看，肯定就是两类样本最中间的划分平面，这样做泛化性能和对于扰动的容忍性最好。
+​	基于我们这样的思路，我们需要计算的第一个数据就是样本点到这个超平面的距离，这里我们描述超平面为：wTx+b&#x3D;0，则对于样本点x，到超平面的距离为：
+
+​	如果对于一个线性可分的数据，可以正确分类，这说明对于一个样本有：
+
+​	这个地方之所以有等号，是因为这个等式的划分需要考虑距离这个超平面最近的几个样本点，也就是“支持向量”，两个异类支持向量到超平面的距离被称为间隔。
+​	
+​	基于此，我们就可以确定我们这个工作的主要目标函数：令间隔尽可能大同时实现对于数据的划分。
+
+​	这两个是相同概念：
+
+对偶问题​	对于上面的目标函数，也就是有约束的最值问题，可以使用拉格朗日乘子法进行求解，上式可以写作：
+
+​	不过这里需要明确αi&gt;&#x3D;0。
+​	对于上式w,b求导可得：
+
+​	 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/01/31/%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" title="半监督学习">半监督学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-31T06:14:00.000Z" title="Created 2024-01-31 14:14:00">2024-01-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a></span></div><div class="content">半监督学习未标记样本​	我们在丰收季节来到瓜田，满地都是西瓜，瓜农说这三四个都是好瓜，又指着地里的五六个瓜说这些还不好，还需要长几天。就这些信息，我们能够构建一个模型来判断这些瓜那些是好瓜呢？
+​	显然，这个在操作上是可以做到的，但是，我们只有不到十个瓜来做训练样本，这明显有些太少了。于是，我们把罪恶的目光投向了地里其他的瓜。
+​	什么意思呢？我们现在有一个有标记样本集合Dl，还有一个未标记样本集合Du，并且我们可以确定l&lt;&lt;u，所以为了确保模型的能力，我们要把Du用上。最简单的，就是把Du也一个个标记上。
+​	但是，有这功夫我干什么不好呢？
+​	新方案：用有标记的样本，训练一个模型，然后，用这个模型去找瓜，确认好坏之后，加入有标记样本集合，重新训练，每一次都找对于改善模型性能有帮助的瓜。这种学习方式称之为“主动学习”。可以用较少的查询来获得尽可能好的性能。
+​	so，我们该怎么确认瓜的好坏呢？如果我们不能额外获得新的标记，我们还可以这样做吗？
+​	答案是可以的。
+​	为什么？因为未标记不等于没价值（公式秒了），他们和有标记样本是独立同分布采样出来的，他们的分布信息是对于模 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/01/30/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" title="贝叶斯分类器">贝叶斯分类器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-30T06:04:56.000Z" title="Created 2024-01-30 14:04:56">2024-01-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">课程学习笔记</a></span></div><div class="content">贝叶斯分类器（生成式分类器）贝叶斯决策论​	是概率框架下实施决策的基本方法。
+​	对于分类任务来说，在所有相关概率都已知的理想条件下，贝叶斯决策论考虑如何基于这些概率和误判损失来选择最优的类别标记。
+​	首先引入一个概念：条件风险
+​	对于多分类任务，我们将一个真实标记为j的样本误分类到i，这意味着我们的模型工作出现了损失，这个损失取决于本身的分类错误带来的损失已经对于给定样本发生这个错误的概率。
+
+​	我们的目标：令总体风险最小。
+​	进而产生了贝叶斯判定准则：对于每一个样本输入，为了最小化总体风险，我们都去选择哪个能使条件风险R(c|x)最小的类别标记。
+
+​	此时，得到的h*就称之为是贝叶斯最优分类器，基于此计算就可以得到对应风险，1-风险&#x3D;这个分类器能达到的最好性能。
+​	最简单的情况，为了最小化分类错误率，可以将误判损失记作：
+
+​	这种情况下，损失或者说风险就等于是错误率等于1-正确率：
+
+​	此时对应的最优分类器就是（和上面那个等价，特殊情况的另一个表示方式）：
+
+​	所以，我们需要知道后验概率P(c|x)，但是这又谈何容易？
+​	换个说法，我要是已知这个数据， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/01/29/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-29T10:52:48.727Z" title="Created 2024-01-29 18:52:48">2024-01-29</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
+
+More info: Writing
+Run server1$ hexo server
+
+More info: Server
+Generate static files1$ hexo generate
+
+More info: Generating
+Deploy to remote sites1$ hexo deploy
+
+More info: Deployment
+</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><div class="content"><a class="title" href="/2024/01/31/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/" title="线性模型">线性模型</a><time datetime="2024-01-31T08:03:24.000Z" title="Created 2024-01-31 16:03:24">2024-01-31</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/01/31/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="神经网络">神经网络</a><time datetime="2024-01-31T07:14:51.000Z" title="Created 2024-01-31 15:14:51">2024-01-31</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/01/31/%E5%88%A4%E5%88%AB%E5%BC%8F%E5%88%86%E7%B1%BB%E5%99%A8/" title="判别式分类器">判别式分类器</a><time datetime="2024-01-31T07:12:29.000Z" title="Created 2024-01-31 15:12:29">2024-01-31</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/01/31/%E9%99%8D%E7%BB%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/" title="降维与度量学习">降维与度量学习</a><time datetime="2024-01-31T07:09:22.000Z" title="Created 2024-01-31 15:09:22">2024-01-31</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/01/31/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/" title="集成学习">集成学习</a><time datetime="2024-01-31T07:01:36.000Z" title="Created 2024-01-31 15:01:36">2024-01-31</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">课程学习笔记</span><span class="card-category-list-count">8</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E5%9B%BD%E7%A7%91%E5%A4%A7%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A023%E7%A7%8B%E5%AD%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">国科大模式识别与机器学习23秋季学习笔记</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">January 2024</span><span class="card-archive-list-count">9</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">9</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-02-02T06:08:46.335Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
